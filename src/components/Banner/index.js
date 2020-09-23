@@ -168,7 +168,7 @@ export default function Banner(){
           all.map((res) => {
             return (
               <div >
-                <h3 style={{ background: `url(${res.fields.banner.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}>
+                <h3 style={{ background: `url(${res.fields.bannerImage.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}>
                   <InfDiv>
                     <Title>{res.fields.postTitle}</Title>
                     <label>
