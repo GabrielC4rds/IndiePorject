@@ -39,6 +39,43 @@ const TitleDiv = styled.div`
   }
 `;
 
+const BannerTop = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  label{
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    font-size: 50px;
+    cursor: pointer;
+    color: rgba(0,0,0,0);
+  }
+  :hover{
+    
+    label{
+      text-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      mix-blend-mode: soft-light;
+      animation: labelTransition 0.5s forwards;
+    }
+    
+
+    @keyframes labelTransition {
+      from { color: rgba(0,0,0,0)}
+      to { color: rgba(255,255,255,0.7)}
+    }
+    animation: bannerTransition 0.5s forwards;
+      }
+
+    @keyframes bannerTransition {
+        from { background-color: none }
+        to { background-color: rgba(0,0,0,0.7)}
+    }
+    
+`;
+
 const BorderTitle = styled.div`
   height: 4px;
   width: 100%;
@@ -205,7 +242,11 @@ export default function ListPodcasts() {
                 <Link to="/podcast">
                   <Item onClick={() => setUser(res.fields.title)}>
                     {console.log(User)}
-                    <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }} />
+                    <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
+                    <BannerTop>
+                       <label>{res.fields.type}</label>
+                      </BannerTop>
+                    </ItemTop>
                     <TextDiv>
 
                       <TitleItem>
