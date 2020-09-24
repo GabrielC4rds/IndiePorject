@@ -179,7 +179,7 @@ function Artigo() {
                 {res.fields.description}
               </label>
               <Divider/>
-              <p>Introdução</p>
+              <p>{res.fields.intTitle}</p>
               <label>{res.fields.introducaoText1}</label>
               <Space/>
               {res.fields.introducaoText2?<><label>{res.fields.introducaoText2}</label>
@@ -197,7 +197,7 @@ function Artigo() {
               <Space/></>
               :null}
               <Divider/>
-              <p>Desenvolvimento</p>
+              <p>{res.fields.desTitle}</p>
               {res.fields.desenvolvimentoText1?<><label>{res.fields.desenvolvimentoText1}</label>
               <Space/></>
               :null}
@@ -229,7 +229,7 @@ function Artigo() {
               <Space/></>
               :null}
               <Divider/>
-              <p>Conclusão</p>
+              <p>{res.fields.concTitle}</p>
               {res.fields.conclusaoText1?<><label>{res.fields.conclusaoText1}</label>
               <Space/></>
               :null}

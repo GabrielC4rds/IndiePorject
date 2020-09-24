@@ -107,6 +107,31 @@ const ItemTop = styled.div`
   background-position: center 50%;
 `;
 
+const BannerTop = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  label{
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  :hover{
+
+    label{
+      text-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      mix-blend-mode: overlay;
+    }
+    animation: bannerTransition 0.5s forwards;
+      }
+
+    @keyframes bannerTransition {
+        from { background-color: none }
+        to { background-color: rgba(0,0,0,0.7)}
+    }
+`;
+
 const TextDiv = styled.div`
   width: 100%;
   height: 18%;
@@ -205,7 +230,11 @@ export default function ListPodcasts() {
                 <Link to={`/${res.fields.type}`}>
                   <Item onClick={() => setUser(res.fields.title)}>
                     {console.log(User)}
-                    <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }} />
+                    <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }} >
+                      <BannerTop>
+                       <label>{res.fields.type}</label>
+                      </BannerTop>
+                      </ItemTop>
                     <TextDiv>
 
                       <TitleItem>

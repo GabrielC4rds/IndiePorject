@@ -185,7 +185,7 @@ function Analise() {
                 {res.fields.description}
               </label>
               <Divider />
-              <p>Introdução</p>
+              <p>{res.fields.intTitle}</p>
               <label>{res.fields.intText1}</label>
               <Space />
               {res.fields.intText2 ? <><label>{res.fields.intText2}</label>
@@ -203,7 +203,7 @@ function Analise() {
                 <Space /></>
                 : null}
               <Divider />
-              <p>Desenvolvimento</p>
+              <p>{res.fields.desTitle}</p>
               {res.fields.desText1 ? <><label>{res.fields.desText1}</label>
                 <Space /></>
                 : null}
@@ -235,7 +235,7 @@ function Analise() {
                 <Space /></>
                 : null}
               <Divider />
-              <p>Vale a pena?</p>
+              <p>{res.fields.concTitle}</p>
               {res.fields.concText1 ? <><label>{res.fields.concText1}</label>
                 <Space /></>
                 : null}

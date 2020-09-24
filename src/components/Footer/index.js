@@ -79,6 +79,9 @@ const Top = styled.div`
       color: #fff;
       font-size: 18px;
       font-weight: 600;
+      a{
+        color: #fff;
+      }
       :hover{
         cursor: pointer;
         font-weight: bold;
@@ -96,12 +99,12 @@ function Header() {
         <div style={{ width: "60%", height: "50%", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>
           <Top>
             <div>
-              <label>ARTIGOS</label>
-              <label>PODCAST</label>
+              <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
+              <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
             </div>
             <div>
-              <label>ESPECIAIS</label>
-              <label>CONTATO</label>
+              <label>FALE CONOSCO</label>
+              <label><a class="mailto" href="mailto:contact@test.com">INDIECACAO.COM.BR</a></label>
             </div>
           </Top>
           <label>
