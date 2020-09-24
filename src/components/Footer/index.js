@@ -90,7 +90,7 @@ const Top = styled.div`
 function Header() {
 
   return (
-    <Content>
+    <Content id="Contato">
       <LeftDiv>
         <img src="./icon/Logo-Clara.png" />
         <div style={{ width: "60%", height: "50%", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>

@@ -120,7 +120,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function Banner(){
+export default function Banner() {
 
 
 
@@ -141,7 +141,7 @@ export default function Banner(){
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 1000,
-    autoplay: false,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
@@ -155,8 +155,8 @@ export default function Banner(){
     async function FetchMyApi() {
 
       let items = await ConnectContent();
-      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "Podcast");
-      setAll(allContent);
+      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "podcast");
+      setAll(allContent.reverse());
     }
     FetchMyApi();
   }, []);
@@ -165,18 +165,20 @@ export default function Banner(){
     <Content>
       <Slider {...settings}>
         {
-          all.map((res) => {
+          all.slice(0, 3).map((res) => {
             return (
-              <div >
-                <h3 style={{ background: `url(${res.fields.bannerImage.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}>
-                  <InfDiv>
-                    <Title>{res.fields.postTitle}</Title>
-                    <label>
-                      {res.fields.miniDesc}
-              </label>
-                  </InfDiv>
-                </h3>
-              </div>
+              <Link to={`/${res.fields.type}`}>
+                <div onClick={() => setUser(res.fields.title)}>
+                  <h3 style={{ background: `url(${res.fields.bannerImage.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}>
+                    <InfDiv>
+                      <Title>{res.fields.postTitle}</Title>
+                      <label>
+                        {res.fields.miniDesc}
+                      </label>
+                    </InfDiv>
+                  </h3>
+                </div>
+              </Link>
             )
           })
         }

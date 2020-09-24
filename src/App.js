@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import Home from './pages/Home';
 import Podcast from './pages/Podcast';
-import Artigos from './pages/Artigos';
 import Artigo from './pages/Artigo';
 import Analise from './pages/Analise';
 import PodcastPage from './pages/PodcastPage';
 import { StoreProvider } from './Store';
+import ArtigosPage from './pages/ArtigosPage';
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,7 +30,7 @@ function App() {
             <Analise/>
           </Route>
           <Route path="/artigospage">
-            <Artigos/>
+            <ArtigosPage/>
           </Route>
           <Route path="/podcastpage">
             <PodcastPage/>

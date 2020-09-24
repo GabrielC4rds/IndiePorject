@@ -5,11 +5,15 @@ body {
     font-family: 'Montserrat', sans-serif;
   /* -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; */
-  
 }
 ul .slick-active div{
   background: #fff;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* .slick-slide.slick-active{
   width: auto !important;

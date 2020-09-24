@@ -106,7 +106,7 @@ function Header() {
         <ItemsDiv>
           <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
           <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
-          <label>CONTATO</label>
+          <label onClick={() => window.location.href = "#Contato"}>CONTATO</label>
           {/* <Search /> */}
         </ItemsDiv>
       </All>

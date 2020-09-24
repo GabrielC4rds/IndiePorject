@@ -184,7 +184,7 @@ export default function ListPodcasts() {
 
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" );
-      setAll(allContent);
+      setAll(allContent.reverse());
     }
     FetchMyApi();
   }, []);
@@ -209,7 +209,7 @@ export default function ListPodcasts() {
                     <TextDiv>
 
                       <TitleItem>
-                        {res.fields.postTitle}
+                        {res.fields.artigoTitle? res.fields.artigoTitle:res.fields.postTitle}
                       </TitleItem>
                       <DescItem>
                         {res.fields.miniDesc}

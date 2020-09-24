@@ -1,9 +1,9 @@
-import React, { Component, useState, useContext, useEffect }  from 'react';
+import React, { Component, useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ConnectContent } from '../ConfigContent';
-// import { UserContext, StoreContext } from '../../Store';
+import { UserContext, StoreContext } from '../Store';
 import {
   BrowserRouter as Router,
   Switch,
@@ -53,7 +53,7 @@ const Item = styled.div`
   font-family: 'Montserrat', sans-serif !important;
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 20vw;
   height: 50vh;
   margin-bottom: 5vh;
   margin-left: 2.2vw;
@@ -66,6 +66,9 @@ const PostImage = styled.div`
   height: 70%;
   background: gray;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 100% 
 `;
 
 const TextDiv = styled.div`
@@ -83,6 +86,13 @@ const Title = styled.label`
   cursor: pointer;
 `;
 
+const MiniDesc = styled.label`
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+`;
+
 const DataText = styled.label`
   font-size: 15px;
   color: gray;
@@ -91,14 +101,14 @@ const DataText = styled.label`
 
 function PodcastPage() {
   const [all, setAll] = useState([]);
-  // const [User, setUser] = useContext(StoreContext);
+  const [User, setUser] = useContext(StoreContext);
 
   useEffect(() => {
     async function FetchMyApi() {
 
       let items = await ConnectContent();
-      let allContent = await items.filter(x => x.fields.title == "Post");
-      setAll(allContent);
+      let allContent = await items.filter(x => x.fields.type == "podcast");
+      setAll(allContent.reverse());
     }
     FetchMyApi();
   }, []);
@@ -107,52 +117,27 @@ function PodcastPage() {
     <All>
       <Header />
       <ContentDiv>
-      {console.log("eu", all)}
+        {console.log("eu", all)}
         <TitleDiv>Todos os podcasts</TitleDiv>
         <ItemDiv>
-        
-          <Item>
-            <PostImage />
-            <TextDiv>
-              <Title>Notícias da Nave Mãe #04 - Youtube no banheiro</Title>
-              <DataText>7 DE FEVEREIRO DE 2019</DataText>
-            </TextDiv>
-          </Item>
-          <Item>
-            <PostImage />
-            <TextDiv>
-              <Title>Notícias da Nave Mãe #04 - Youtube no banheiro</Title>
-              <DataText>7 DE FEVEREIRO DE 2019</DataText>
-            </TextDiv>
-          </Item>
-          <Item>
-            <PostImage />
-            <TextDiv>
-              <Title>Notícias da Nave Mãe #04 - Youtube no banheiro</Title>
-              <DataText>7 DE FEVEREIRO DE 2019</DataText>
-            </TextDiv>
-          </Item>
-          <Item>
-            <PostImage />
-            <TextDiv>
-              <Title>Notícias da Nave Mãe #04 - Youtube no banheiro</Title>
-              <DataText>7 DE FEVEREIRO DE 2019</DataText>
-            </TextDiv>
-          </Item>
-          <Item>
-            <PostImage />
-            <TextDiv>
-              <Title>Notícias da Nave Mãe #04 - Youtube no banheiro</Title>
-              <DataText>7 DE FEVEREIRO DE 2019</DataText>
-            </TextDiv>
-          </Item>
-          <Item>
-            <PostImage />
-            <TextDiv>
-              <Title>Notícias da Nave Mãe #04 - Youtube no banheiro</Title>
-              <DataText>7 DE FEVEREIRO DE 2019</DataText>
-            </TextDiv>
-          </Item>
+          {all.map((res) => {
+            return (
+              <Link to={`/${res.fields.type}`}>
+              <Item onClick={() => setUser(res.fields.title)}>
+                <PostImage style={{backgroundImage: `url(${res.fields.bannerImage.fields.file.url})`}}/>
+                <TextDiv>
+                  <Title>
+                    {res.fields.podcastTag} {res.fields.podcastNumber} - {res.fields.podcastTitle} 
+                  </Title>
+                  <MiniDesc>
+                    {res.fields.miniDesc}
+                  </MiniDesc>
+                  <DataText>{res.fields.dataSign}</DataText>
+                </TextDiv>
+              </Item>
+              </Link>
+            )
+          })}
         </ItemDiv>
       </ContentDiv>
       <Footer />

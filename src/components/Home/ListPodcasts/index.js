@@ -183,8 +183,8 @@ export default function ListPodcasts() {
     async function FetchMyApi() {
 
       let items = await ConnectContent();
-      let allContent = await items.filter(x => x.fields.type == "Podcast");
-      setAll(allContent);
+      let allContent = await items.filter(x => x.fields.type == "podcast");
+      setAll(allContent.reverse());
     }
     FetchMyApi();
   }, []);
