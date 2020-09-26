@@ -237,14 +237,14 @@ export default function ListPodcasts() {
         {console.log(all)}
         <Slider {...settings}>
           {
-            all.map((res) => {
+            all.slice(0, 12).map((res) => {
               return (
                 <Link to={`/${res.fields.type}`}>
                   <Item onClick={() => setUser(res.fields.title)}>
                     {console.log(User)}
                     <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }} >
                       <BannerTop>
-                       <label>{res.fields.type}</label>
+                       <label>{res.fields.type == "artigo"?res.fields.type: "análise"}</label>
                       </BannerTop>
                       </ItemTop>
                     <TextDiv>

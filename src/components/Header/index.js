@@ -31,7 +31,7 @@ const BorderBottom = styled.div`
 const Logo = styled.div`
   width: 12%;
   height: 100%;
-  margin-left: 25px;
+  margin-left: 2vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,7 +65,7 @@ const Logo = styled.div`
 const ItemsDiv = styled.div`
   width: 20%;
   height: 100%;
-  margin-right: 40px;
+  margin-right: 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;

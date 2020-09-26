@@ -58,6 +58,19 @@ const Item = styled.div`
   margin-bottom: 5vh;
   margin-left: 2.2vw;
   margin-right: 2.2vw;
+  :hover{
+  label:nth-child(1){
+
+    
+    animation: colorLabel 0.3s forwards;
+  }
+}
+
+@keyframes colorLabel {
+    from { color: #fff;}
+    to { color: #56EE8D;}
+}
+  }
 `;
 
 
@@ -73,7 +86,7 @@ const PostImage = styled.div`
 
 const TextDiv = styled.div`
   width: 100%;
-  height: 30%;
+  height: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

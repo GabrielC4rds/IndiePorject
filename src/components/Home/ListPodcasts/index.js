@@ -237,7 +237,7 @@ export default function ListPodcasts() {
         {console.log(all)}
         <Slider {...settings}>
           {
-            all.map((res) => {
+            all.slice(0, 12).map((res) => {
               return (
                 <Link to="/podcast">
                   <Item onClick={() => setUser(res.fields.title)}>

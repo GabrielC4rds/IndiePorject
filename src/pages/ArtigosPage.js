@@ -33,6 +33,19 @@ const Item = styled.div`
   width: 90vw;
   height: auto;
   margin-bottom: 5vh;
+  :hover{
+  label:nth-child(1){
+
+  
+      animation: colorLabel 0.3s forwards;
+    }
+  }
+
+  @keyframes colorLabel {
+      from { color: #fff;}
+      to { color: #56EE8D;}
+  }
+    }
 `;
 
 const TitleDiv = styled.div`
