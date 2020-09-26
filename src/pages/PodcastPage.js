@@ -54,7 +54,7 @@ const Item = styled.div`
   display: flex;
   flex-direction: column;
   width: 20vw;
-  height: 50vh;
+  height: 62vh;
   margin-bottom: 5vh;
   margin-left: 2.2vw;
   margin-right: 2.2vw;
@@ -71,12 +71,15 @@ const Item = styled.div`
     to { color: #56EE8D;}
 }
   }
+  @media screen and (min-width: 600px) and (max-width: 1440px) {
+    height: 82vh;
+  }
 `;
 
 
 const PostImage = styled.div`
   width: 100%;
-  height: 70%;
+  height: 40vh;
   background: gray;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -86,10 +89,11 @@ const PostImage = styled.div`
 
 const TextDiv = styled.div`
   width: 100%;
-  height: 35%;
+  height: auto;
+  margin-top: 7px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 const Title = styled.label`
@@ -100,8 +104,9 @@ const Title = styled.label`
 `;
 
 const MiniDesc = styled.label`
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
+  margin: 20px 0;
   color: #fff;
   cursor: pointer;
 `;
@@ -135,8 +140,8 @@ function PodcastPage() {
         <ItemDiv>
           {all.map((res) => {
             return (
-              <Link to={`/${res.fields.type}`}>
               <Item onClick={() => setUser(res.fields.title)}>
+                <Link to={`/${res.fields.type}`}>
                 <PostImage style={{backgroundImage: `url(${res.fields.bannerImage.fields.file.url})`}}/>
                 <TextDiv>
                   <Title>
@@ -147,8 +152,8 @@ function PodcastPage() {
                   </MiniDesc>
                   <DataText>{res.fields.dataSign}</DataText>
                 </TextDiv>
-              </Item>
               </Link>
+              </Item>
             )
           })}
         </ItemDiv>

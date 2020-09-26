@@ -20,14 +20,14 @@ const Content = styled.div`
   flex-direction: column;
   background: black;
   width: 100%;
-  height: 60vh;
+  height: auto;
   align-items: center;
   justify-content: space-between;
 `;
 
 const TitleDiv = styled.div`
   width: 90%;
-  height: 10vh;
+  height: 13vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +36,10 @@ const TitleDiv = styled.div`
     font-weight: 700;
     color: #56EE8D;
     margin: 18px 0;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1440px) {
+
+    height: 15vh;
   }
 `;
 
@@ -84,7 +88,7 @@ const BorderTitle = styled.div`
 
 const ItemsDiv = styled.div`
   width: 90%;
-  height: 40vh;
+  height: auto;
   margin-bottom: 6vh;
 `;
 
@@ -98,6 +102,10 @@ const Item = styled.div`
   flex-direction: column;
   :hover{
     cursor: pointer;
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 1440px) {
+    height: 55vh;
   }
 `;
 
@@ -138,10 +146,13 @@ const LittleDots = styled.div`
 
 const ItemTop = styled.div`
   width: 100%;
-  height: 60%;
+  height: 50%;
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center 50%;
+  @media screen and (min-width: 600px) and (max-width: 1440px) {
+    height: 43%;
+  }
 `;
 
 const TextDiv = styled.div`
@@ -154,7 +165,7 @@ const TextDiv = styled.div`
 `;
 
 const TitleItem = styled.p`
-  font-size: 13px;
+  font-size: 18px;
   font-weight: bold;
   color: #fff;
   margin: 0;

@@ -28,6 +28,11 @@ const LeftDiv = styled.div`
     display: flex;
     flex-direction: column;
   }
+  label{
+    @media screen and (min-width: 600px) and (max-width: 1440px) {
+      font-size: 15px;
+    }
+  }
 `;
 
 const RightDiv = styled.div`
@@ -86,6 +91,9 @@ const Top = styled.div`
         cursor: pointer;
         font-weight: bold;
       }
+      @media screen and (min-width: 600px) and (max-width: 1440px) {
+        font-size: 15px;
+      }
     }
   }
 `;
@@ -96,7 +104,7 @@ function Header() {
     <Content id="Contato">
       <LeftDiv>
         <img src="./icon/Logo-Clara.png" />
-        <div style={{ width: "60%", height: "50%", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>
+        <div style={{ width: "auto", height: "57%", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>
           <Top>
             <div>
               <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>

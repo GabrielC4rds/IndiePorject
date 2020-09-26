@@ -5,7 +5,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 42.5vh;
+  height: auto;
   background: url("./img/miniBanner.png") no-repeat;
   background-size:  auto 100%;
   background-attachment: fixed;
@@ -19,7 +19,7 @@ const Content = styled.div`
   }
   div:nth-child(2){
     width: 100%;
-    height: 45vh;
+    height: auto;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +28,7 @@ const Content = styled.div`
     line-height: 1.2;
     
     div{
-        width: 47%;
+        width: 80%;
         height: 73%;
         display:flex;
         flex-direction: column;
@@ -52,6 +52,7 @@ const TitleText = styled.label`
     font-size: 36px;
     font-weight: bold;
     color: #fff;
+    margin: 30px 0;
 `;
 
 function MiniBanner() {

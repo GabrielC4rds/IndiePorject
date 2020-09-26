@@ -40,7 +40,7 @@ const BackgroundDiv = styled.div`
 `;
 
 const TitleDiv = styled.div`
-  width: 40%;
+  width: 50%;
   height: 55%;
   color: #fff;
   display: flex;
@@ -59,6 +59,7 @@ const TitleDiv = styled.div`
     font-weight: regular;
     color: #fff;
   }
+  
 `;
 
 const AllPost = styled.div`
@@ -92,10 +93,17 @@ const AllPost = styled.div`
 `;
 
 const LinksDiv = styled.div`
-  width: 20vw;
+  width: auto;
   height: 30px;
   display: flex;
-  justify-content: space-between;
+  
+`;
+
+const DividerRight = styled.div`
+  height: 100%;
+  margin: 0 10px;
+  width: 1px;
+  background: #316CE1;
 `;
 
 const IframeDiv = styled.div`
@@ -190,8 +198,10 @@ function Podcast() {
               </IframeDiv>
               <p>Nos acompanhe:</p>
               <LinksDiv>
-                <a style={{ borderRight: "1px #316CE1 solid", width: "4.6vw" }}>Spotify</a>
-                <a style={{ borderRight: "1px #316CE1 solid", width: "9.8vw" }}>Google Podcast</a>
+                <a>Spotify</a>
+                <DividerRight/>
+                <a>Google Podcast</a>
+                <DividerRight/>
                 <a>Anchor</a>
               </LinksDiv>
               <p>Participantes:</p>

@@ -21,31 +21,22 @@ const All = styled.div`
   font-family: 'Montserrat', sans-serif !important;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background: black;
- 
 `;
 
 
 const Item = styled.div`
   font-family: 'Montserrat', sans-serif !important;
   display: flex;
-  width: 90vw;
   height: auto;
+  width: auto;
   margin-bottom: 5vh;
-  :hover{
-  label:nth-child(1){
-
+  margin-left: 5vw;
+  cursor: normal;
+  a{
+    display: flex;
+  }
   
-      animation: colorLabel 0.3s forwards;
-    }
-  }
-
-  @keyframes colorLabel {
-      from { color: #fff;}
-      to { color: #56EE8D;}
-  }
-    }
 `;
 
 const TitleDiv = styled.div`
@@ -56,6 +47,7 @@ const TitleDiv = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 10vh;
+  
 `;
 
 const TopDiv = styled.div`
@@ -64,18 +56,32 @@ const TopDiv = styled.div`
 `;
 
 const PostImage = styled.div`
-  width: 25%;
+  width: 25vw;
   height: 25vh;
   background: cyan;
   cursor: pointer;
+  
 `;
 
 const TextDiv = styled.div`
-  width: 70%;
+  width: auto;
   height: 100%;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+  :hover{
+    label:nth-child(1){
+  
+    
+        animation: colorLabel 0.3s forwards;
+      }
+    }
+  
+    @keyframes colorLabel {
+        from { color: #fff;}
+        to { color: #56EE8D;}
+    }
+      }
 `;
 
 const Title = styled.label`
@@ -114,19 +120,21 @@ function ArtigosPage() {
       <TitleDiv>Últimos Artigos</TitleDiv>
       {all.map((res) => {
         return (
-          <Link to={`/${res.fields.type}`}>
-            <Item onClick={() => setUser(res.fields.title)}>
-              <PostImage style={{ background: `url(${res.fields.bannerImage.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}></PostImage>
+
+          <Item >
+            <Link to={`/${res.fields.type}`}>
+              <PostImage onClick={() => setUser(res.fields.title)} style={{ background: `url(${res.fields.bannerImage.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}></PostImage>
               <TextDiv>
 
-                <Title>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
-                <DataText>{res.fields.dataSign}</DataText>
+                <Title onClick={() => setUser(res.fields.title)}>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
+                <DataText onClick={() => setUser(res.fields.title)}>{res.fields.dataSign}</DataText>
               </TextDiv>
-            </Item>
           </Link>
+            </Item>
         )
       })}
-      <Footer />
+      <div style={{width: "100%", height: "10vh"}}/>
+      <Footer/>
     </All>
   );
 }

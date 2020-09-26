@@ -69,6 +69,9 @@ const InfDiv = styled.div`
     margin-right: 2vw;
     margin-right: 7vw;
     line-height: 1.2;
+    @media screen and (min-width: 600px) and (max-width: 1440px) {
+      font-size: 15px;
+    }
   }
 `;
 
@@ -79,6 +82,9 @@ const Title = styled.p`
   margin-bottom: 20px;
   position: relative;
   margin-right: 7vw;
+  @media screen and (min-width: 600px) and (max-width: 1440px) {
+    font-size: 40px;
+  }
 `;
 
 const Dots = styled.div`

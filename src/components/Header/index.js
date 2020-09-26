@@ -63,23 +63,25 @@ const Logo = styled.div`
 `;
 
 const ItemsDiv = styled.div`
-  width: 20%;
+  width: auto;
   height: 100%;
   margin-right: 5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
   label{
     color: #fff;
     letter-spacing: 0px;
     font-weight: 600;
     font-size: 20px;
+    margin: 0 20px;
     :hover{
       color: #56EE8D;
       cursor: pointer;
       animation: colorLabel 0.3s forwards;
     }
-
+   
   @keyframes colorLabel {
       from { color: #fff;}
       to { color: #56EE8D;}

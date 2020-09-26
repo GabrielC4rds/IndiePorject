@@ -59,6 +59,9 @@ const TitleDiv = styled.div`
     font-weight: regular;
     color: #fff;
   }
+  @media screen and (min-width: 600px) and (max-width: 1440px) {
+    width: 60%;
+  }
 `;
 
 const AllPost = styled.div`
@@ -115,28 +118,16 @@ const Space = styled.div`
   height: 3vh;
 `;
 
+const SpaceImage = styled.div`
+  width: 100%;
+  height: 5vh;
+`;
 
 
 const DisqusDiv = styled.div`
   margin-top: 5vh;
 `;
 
-const DownInfs = styled.div`
-  height: auto;
-  width: 100%;
-  border-top: 2px solid #707070;
-  margin-top: 20px;
-  p{
-    width: 60%;
-    font-size: 22px;
-    font-weight: 500;
-    span{
-      font-weight: 600;
-    }
-  }
-`;
-
-const linkSpotify = 'https://open.spotify.com/embed-podcast/episode/58haVRLxRGvDOMoT7reNGB';
 
 function Analise() {
 
@@ -189,15 +180,15 @@ function Analise() {
               <label>{res.fields.intText1}</label>
               <Space />
               {res.fields.intText2 ? <><label>{res.fields.intText2}</label>
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               <ContentImage style={{ backgroundImage: `url(${res.fields.intImage2.fields.file.url})` }} />
-              <Space />
+              <SpaceImage />
               {res.fields.intText3 ? <><label>{res.fields.intText3}</label>
                 <Space /></>
                 : null}
               {res.fields.intImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.intImage3.fields.file.url})` }} />
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.intText4 ? <><label>{res.fields.intText4}</label>
                 <Space /></>
@@ -208,28 +199,28 @@ function Analise() {
                 <Space /></>
                 : null}
               {res.fields.desText2 ? <><label>{res.fields.desText2}</label>
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.desImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage1.fields.file.url})` }} />
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.desText3 ? <><label>{res.fields.desText3}</label>
                 <Space /></>
                 : null}
               {res.fields.desText4 ? <><label>{res.fields.desText4}</label>
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.desImage2 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage2.fields.file.url})` }} />
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.desText5 ? <><label>{res.fields.desText5}</label>
                 <Space /></>
                 : null}
               {res.fields.desText6 ? <><label>{res.fields.desText6}</label>
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.desImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage3.fields.file.url})` }} />
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.desText7 ? <><label>{res.fields.desText7}</label>
                 <Space /></>
@@ -243,10 +234,10 @@ function Analise() {
                 <Space /></>
                 : null}
               {res.fields.concText3 ? <><label>{res.fields.concText3}</label>
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               {res.fields.concImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.concImage1.fields.file.url})` }} />
-                <Space /></>
+                <SpaceImage /></>
                 : null}
               <p>Prós</p>
               <ul>
