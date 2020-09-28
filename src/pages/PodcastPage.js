@@ -37,6 +37,8 @@ const ItemDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  @media only screen and (max-width: 768px) {
+  }
 `;
 
 const TitleDiv = styled.div`
@@ -47,6 +49,9 @@ const TitleDiv = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 10vh;
+  @media only screen and (max-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 const Item = styled.div`
@@ -60,8 +65,6 @@ const Item = styled.div`
   margin-right: 2.2vw;
   :hover{
   label:nth-child(1){
-
-    
     animation: colorLabel 0.3s forwards;
   }
 }
@@ -73,6 +76,12 @@ const Item = styled.div`
   }
   @media screen and (min-width: 600px) and (max-width: 1440px) {
     height: 82vh;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 70vh;
   }
 `;
 

@@ -16,6 +16,9 @@ const Content = styled.div`
       color: #fff;
       font-size: 23px;
       text-align: center; 
+      @media only screen and (max-width: 768px) {
+        font-size: 15px;
+    }
   }
   div:nth-child(2){
     width: 100%;
@@ -35,8 +38,7 @@ const Content = styled.div`
         align-items: center;
         justify-content: space-between;
         margin-bottom: 5vh;
-        z-index: 4;
-        
+        z-index: 4;  
     }
 }
 `;
@@ -53,6 +55,10 @@ const TitleText = styled.label`
     font-weight: bold;
     color: #fff;
     margin: 30px 0;
+    @media only screen and (max-width: 768px) {
+        font-size: 25px;
+        text-align: center;
+    }
 `;
 
 function MiniBanner() {

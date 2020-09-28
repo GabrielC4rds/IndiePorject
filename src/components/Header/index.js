@@ -12,13 +12,91 @@ const Content = styled.div`
   
 `;
 
+
+const MenuButton = styled.div`
+display: none;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    width: 50px;
+    height: 100%;
+    align-items: center;
+    border: none;
+    background: none;
+    img{
+      width: 20px;
+  }
+}
+`;
+
+const MenuMobile = styled.div`
+  display: none;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    background: black;
+    width: 100vw;
+    height: 500vh;
+    z-index: 6;
+    position: absolute;
+    left: -100vw;
+    justify-content: start;
+    overflow: hidden;
+    position: fixed;
+    div:nth-child(2){
+      margin-top: 50px;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      label{
+        color: #fff;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
+  .active {
+    animation: menuTransition 0.5s forwards;
+  }
+
+  @keyframes menuRevertTransition {
+    from { left: 0}
+    to { left: -100vw}
+  }
+
+  @keyframes menuTransition {
+    from { left: -100vw}
+    to { left: 0}
+  }
+
+  
+  
+  
+`;
+
+const CloseButton = styled.div`
+  display: none;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    img{
+      width: 20px;
+    }
+  }
+`;
+
 const All = styled.div`
   width: 100%;
   height: 11vh;
   background: black;
   display: flex;
   justify-content: space-between;
-
 `;
 
 const BorderBottom = styled.div`
@@ -37,6 +115,9 @@ const Logo = styled.div`
   justify-content: space-between;
   img{
     width: 74px;
+    @media only screen and (max-width: 768px) {
+      width: 65px;
+    }
   }
   label{
     color: #fff;
@@ -45,6 +126,9 @@ const Logo = styled.div`
     font-width: 154px;
     font-height: 23px;;
     font-weight: 300;
+    @media only screen and (max-width: 768px) {
+      font-size: 15px;
+    }
   }
   :hover{
     img{
@@ -52,7 +136,7 @@ const Logo = styled.div`
     }
     label{
       cursor: pointer;
-      // font-size: 25px;
+      
     }
     cursor: pointer;
   }
@@ -87,6 +171,9 @@ const ItemsDiv = styled.div`
       to { color: #56EE8D;}
   }
     }
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
@@ -96,24 +183,44 @@ const Search = styled.div`
 `;
 
 function Header() {
-
+  const revertHandleMove = () => {
+    document.getElementById("backMobile").style.animation="menuRevertTransition 0.5s forwards"
+  }
+  const handleMove = () => {
+      document.getElementById("backMobile").style.animation="menuTransition 0.5s forwards"
+  }
   return (
+    <>
+      <MenuMobile id="backMobile">
+        <CloseButton onClick={() => revertHandleMove()}>
+          <img src="./icon/close.svg"/>
+        </CloseButton>
+          <div>
+            <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
+            <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
+            <label onClick={() => window.location.href = "/#Contato"}>CONTATO</label>
+          </div>
+      </MenuMobile>
     <Content>
-
       <All>
         <Logo onClick={() => window.location.href = "/"}>
           <img src="./icon/Logo-Clara.png"></img>
           <label>INDIECAÇÃO</label>
         </Logo>
+        <MenuButton onClick={() => handleMove()}>
+          <img src="./icon/menu.svg"/>
+        </MenuButton>
         <ItemsDiv>
           <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
           <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
           <label onClick={() => window.location.href = "#Contato"}>CONTATO</label>
           {/* <Search /> */}
         </ItemsDiv>
+        
       </All>
       <BorderBottom />
     </Content>
+    </>
   );
 }
 

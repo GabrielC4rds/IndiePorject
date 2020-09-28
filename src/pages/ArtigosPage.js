@@ -47,7 +47,9 @@ const TitleDiv = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 10vh;
-  
+  @media only screen and (max-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 const TopDiv = styled.div`
@@ -58,9 +60,14 @@ const TopDiv = styled.div`
 const PostImage = styled.div`
   width: 25vw;
   height: 25vh;
-  background: cyan;
   cursor: pointer;
-  
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center 100%;
+  @media only screen and (max-width: 768px) {
+    width: 30vw;
+    height: 8vh;
+  }
 `;
 
 const TextDiv = styled.div`
@@ -73,15 +80,15 @@ const TextDiv = styled.div`
     label:nth-child(1){
   
     
-        animation: colorLabel 0.3s forwards;
-      }
+      animation: colorLabel 0.3s forwards;
     }
+  }
   
     @keyframes colorLabel {
-        from { color: #fff;}
-        to { color: #56EE8D;}
+      from { color: #fff;}
+      to { color: #56EE8D;}
     }
-      }
+  }
 `;
 
 const Title = styled.label`
@@ -89,12 +96,18 @@ const Title = styled.label`
   font-weight: 600;
   color: #fff;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 const DataText = styled.label`
   font-size: 15px;
   color: gray;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 function ArtigosPage() {
@@ -123,18 +136,18 @@ function ArtigosPage() {
 
           <Item >
             <Link to={`/${res.fields.type}`}>
-              <PostImage onClick={() => setUser(res.fields.title)} style={{ background: `url(${res.fields.bannerImage.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}></PostImage>
+              <PostImage onClick={() => setUser(res.fields.title)} style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
               <TextDiv>
 
                 <Title onClick={() => setUser(res.fields.title)}>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
                 <DataText onClick={() => setUser(res.fields.title)}>{res.fields.dataSign}</DataText>
               </TextDiv>
-          </Link>
-            </Item>
+            </Link>
+          </Item>
         )
       })}
-      <div style={{width: "100%", height: "10vh"}}/>
-      <Footer/>
+      <div style={{ width: "100%", height: "10vh" }} />
+      <Footer />
     </All>
   );
 }

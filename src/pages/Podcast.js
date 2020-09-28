@@ -28,6 +28,10 @@ const Banner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 768px) {
+    height: auto;
+    background-size: auto 100%;
+  }
 `;
 
 const BackgroundDiv = styled.div`
@@ -35,7 +39,7 @@ const BackgroundDiv = styled.div`
  height: 100%;
  display: flex;
  align-items: center;
-  justify-content: center;
+ justify-content: center;
  background: rgba(0,0,0,0.7);
 `;
 
@@ -58,6 +62,23 @@ const TitleDiv = styled.div`
     font-size: 18px;
     font-weight: regular;
     color: #fff;
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+
+    br{
+      display: none;
+    }
+    p{
+      font-size: 30px;
+      line-height: 6vh;
+    }
+    h3{
+      font-size: 15px;
+    }
   }
   
 `;
@@ -85,10 +106,27 @@ const AllPost = styled.div`
     color: #316CE1;
     font-size: 22px;
     font-weight: 500;
+     margin-bottom 20px;
   }
   h3{
     font-size: 22px;
     font-weight: 500;
+  }
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    p{
+      font-size: 18px;
+    }
+    label{
+      font-size: 18px;
+    }
+    a{
+      font-size: 15px;
+      margin-bottom 5px;
+    }
+    h3{
+      font-size: 18px;
+    }
   }
 `;
 
@@ -96,7 +134,7 @@ const LinksDiv = styled.div`
   width: auto;
   height: 30px;
   display: flex;
-  
+
 `;
 
 const DividerRight = styled.div`
@@ -123,6 +161,9 @@ const IframeDiv = styled.div`
     h2{
       font-weight: 600;
     }
+    @media only screen and (max-width: 768px) {
+      width: 95%;
+    }
   }
 `;
 
@@ -141,6 +182,11 @@ const DownInfs = styled.div`
     font-weight: 500;
     span{
       font-weight: 600;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    p{
+      font-size: 18px;
     }
   }
 `;
@@ -208,7 +254,7 @@ function Podcast() {
               {res.fields.participantes.map((x) => {
                 return (
 
-                  <a style={{ marginBottom: "20px" }}>{x}</a>
+                  <a>{x}</a>
                 )
               })}
               <p>Tópicos:</p>

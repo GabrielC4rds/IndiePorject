@@ -28,6 +28,10 @@ const Banner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 768px) {
+    height: auto;
+    background-size: auto 100%;
+  }
 `;
 
 const BackgroundDiv = styled.div`
@@ -59,6 +63,22 @@ const TitleDiv = styled.div`
     font-weight: regular;
     color: #fff;
   }
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+
+    br{
+      display: none;
+    }
+    p{
+      font-size: 30px;
+      line-height: 6vh;
+    }
+    h3{
+      font-size: 15px;
+    }
+  }
 `;
 
 const AllPost = styled.div`
@@ -89,6 +109,25 @@ const AllPost = styled.div`
     font-size: 22px;
     font-weight: 500;
   }
+  @media only screen and (max-width: 768px) {
+    width: 90%;
+    p{
+      font-size: 18px;
+    }
+    label{
+      font-size: 18px;
+    }
+    a{
+      font-size: 15px;
+      margin-bottom 5px;
+    }
+    h3{
+      font-size: 18px;
+    }
+    li{
+      font-size: 18px;
+    }
+  }
 `;
 
 const ContentImage = styled.div`
@@ -96,6 +135,9 @@ const ContentImage = styled.div`
   height: 60vh;
   background-size: 100% auto ;
   background-repeat: no-repeat;
+  @media only screen and (max-width: 768px) {
+    height: 20vh;
+  }
 `;
 
 const Divider = styled.div`
@@ -114,21 +156,6 @@ const Space = styled.div`
 
 const DisqusDiv = styled.div`
   margin-top: 5vh;
-`;
-
-const DownInfs = styled.div`
-  height: auto;
-  width: 100%;
-  border-top: 2px solid #707070;
-  margin-top: 20px;
-  p{
-    width: 60%;
-    font-size: 22px;
-    font-weight: 500;
-    span{
-      font-weight: 600;
-    }
-  }
 `;
 
 const linkSpotify = 'https://open.spotify.com/embed-podcast/episode/58haVRLxRGvDOMoT7reNGB';

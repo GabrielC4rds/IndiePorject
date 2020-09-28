@@ -7,6 +7,10 @@ const Content = styled.div`
   height: 30.5vh;
   background: linear-gradient(270deg, #56EE8D 0%, #6D2AA6 100%);
   justify-content: space-between;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    height: 50vh;
+  }
 `;
 
 const LeftDiv = styled.div`
@@ -24,13 +28,24 @@ const LeftDiv = styled.div`
     width: 209px;
     height: 189px;
   }
-  div:nth-child(0){
+  div:nth-child(1){
     display: flex;
-    flex-direction: column;
+    height: 60%;
   }
   label{
     @media screen and (min-width: 600px) and (max-width: 1440px) {
       font-size: 15px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    width: 95%;
+    img{
+      width: 150px;
+      height: auto;
+      display: none;
+    }
+    p{
+      display: none;
     }
   }
 `;
@@ -43,6 +58,9 @@ const RightDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  p{
+    display: none;
+  }
   label{
     font-weight: 600;
     font-size: 18px;
@@ -67,7 +85,28 @@ const RightDiv = styled.div`
     }
     }
   }
-`;
+      @media only screen and (max-width: 768px) {
+        width: 95%;
+        justify-content: start;
+        align-items: start;
+        height: 60%;
+        margin-left: 5px;
+        div{
+          height: 40%;
+        }
+        p{
+
+          display: block;
+          color: #fff;
+          margin-top: 25px;
+          text-align: right;
+          font-size: 15px;
+        }
+        label{
+          display: none;
+        }
+      }
+    `;
 
 const Top = styled.div`
   width: 100%;
@@ -84,6 +123,7 @@ const Top = styled.div`
       color: #fff;
       font-size: 18px;
       font-weight: 600;
+      
       a{
         color: #fff;
       }
@@ -96,15 +136,20 @@ const Top = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    height: 100%;
+    border-bottom: none;
+  }
 `;
 
-function Header() {
+function Footer() {
 
   return (
     <Content id="Contato">
       <LeftDiv>
         <img src="./icon/Logo-Clara.png" />
-        <div style={{ width: "auto", height: "57%", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>
+        <div style={{ width: "auto", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>
           <Top>
             <div>
               <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
@@ -115,9 +160,9 @@ function Header() {
               <label><a class="mailto" href="mailto:contact@test.com">INDIECACAO.COM.BR</a></label>
             </div>
           </Top>
-          <label>
+          <p>
             © 2020 Indiecação Conteúdo Digital LTDA Todos os direitos reservados
-          </label>
+          </p>
         </div>
       </LeftDiv>
       <RightDiv>
@@ -127,10 +172,13 @@ function Header() {
           <img src="./icon/spotify-brands.svg" />
           <img src="./icon/twitter-brands.svg" />
         </div>
+        <p>
+            © 2020 Indiecação Conteúdo Digital LTDA Todos os direitos reservados
+          </p>
       </RightDiv>
 
     </Content>
   );
 }
 
-export default Header;
+export default Footer;

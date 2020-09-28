@@ -36,10 +36,16 @@ const TitleDiv = styled.div`
     font-weight: 700;
     color: #56EE8D;
     margin: 18px 0;
+    @media only screen and (max-width: 768px) {
+      font-size: 30px;
+    }
   }
   @media screen and (min-width: 600px) and (max-width: 1440px) {
 
     height: 15vh;
+  }
+  @media only screen and (max-width: 768px) {
+    align-items: start;
   }
 `;
 
@@ -71,6 +77,12 @@ const Item = styled.div`
 
     height: 55vh;
   }
+  @media only screen and (max-width: 768px) {
+    width: 40vw !important;
+    margin: 0 10px;
+    justify-content: start;
+    height: auto;
+  }
 `;
 
 const ArrowLeft = styled.img`
@@ -80,6 +92,11 @@ const ArrowLeft = styled.img`
   top: 50%;
   left: -3vw;
   z-index: 2;
+  @media only screen and (max-width: 768px) {
+    height: 20px;
+    top: -8vh;
+    left: 75vw;
+  }
 
 `;
 
@@ -90,6 +107,11 @@ const ArrowRight = styled.img`
   right: -3vw;
   top: 50%;
   z-index: 2;
+  @media only screen and (max-width: 768px) {
+    height: 20px;
+    right: -1vw;
+    top: -8vh;
+  }
 `;
 
 const Dots = styled.div`
@@ -97,6 +119,10 @@ const Dots = styled.div`
   height: 30px;
   position: absolute;
   bottom: -50px;
+  @media only screen and (max-width: 768px) {
+    margin-left: -10px;
+    bottom: -40px;
+  }
 `;
 
 const LittleDots = styled.div`
@@ -105,7 +131,9 @@ const LittleDots = styled.div`
   background: rgba(255,255,255,0.22);
   z-index: 3;
   border-radius: 50px;
-
+  @media only screen and (max-width: 768px) {
+    margin-left: -10px;
+  }
 `;
 
 const ItemTop = styled.div`
@@ -116,6 +144,10 @@ const ItemTop = styled.div`
   background-position: center 50%;
   @media screen and (min-width: 600px) and (max-width: 1440px) {
     height: 43%;
+  }
+  @media only screen and (max-width: 768px) {
+    margin-top: 20px;
+    height: 10vh;
   }
 `;
 
@@ -222,8 +254,21 @@ export default function ListPodcasts() {
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      }
+
+    ]
+
   };
+
+
 
   const [all, setAll] = useState([]);
   const [User, setUser] = useContext(StoreContext);
@@ -232,7 +277,7 @@ export default function ListPodcasts() {
     async function FetchMyApi() {
 
       let items = await ConnectContent();
-      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" );
+      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
       setAll(allContent.reverse());
     }
     FetchMyApi();
@@ -242,7 +287,7 @@ export default function ListPodcasts() {
   return (
     <Content>
       <TitleDiv>
-        <p>Artigos</p>
+        <p>ARTIGOS</p>
         <BorderTitle />
       </TitleDiv>
       <ItemsDiv>
@@ -256,17 +301,17 @@ export default function ListPodcasts() {
                     {console.log(User)}
                     <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }} >
                       <BannerTop>
-                       <label>{res.fields.type == "artigo"?res.fields.type: "análise"}</label>
+                        <label>{res.fields.type == "artigo" ? res.fields.type : "análise"}</label>
                       </BannerTop>
-                      </ItemTop>
+                    </ItemTop>
                     <TextDiv>
 
                       <TitleItem>
-                        {res.fields.artigoTitle? res.fields.artigoTitle:res.fields.postTitle}
+                        {res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}
                       </TitleItem>
                       <DescItem>
                         {res.fields.miniDesc}
-                  </DescItem>
+                      </DescItem>
                     </TextDiv>
                   </Item>
                 </Link>

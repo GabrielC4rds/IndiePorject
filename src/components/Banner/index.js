@@ -25,19 +25,29 @@ const Content = styled.div`
   
   h3{
     height: 90vh;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
     :hover{
       cursor: pointer;
+    }
+    @media only screen and (max-width: 768px) {
+      background-size: auto 100%;
+      background-position: center;
     }
   }
 `;
 
 const ArrowLeft = styled.img`
-width: auto;
-height: 6vh;
-position: absolute;
-left: 20px;
-z-index: 2;
-top: 40%;
+  width: auto;
+  height: 6vh;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  top: 40%;
+  @media only screen and (max-width: 768px) {
+    top: 55%;
+  }
+  
 `;
 
 const ArrowRight = styled.img`
@@ -46,6 +56,9 @@ const ArrowRight = styled.img`
   position: absolute;
   right: 0;
   top: 40%;
+  @media only screen and (max-width: 768px) {
+    top: 55%;
+  }
 `;
 
 const InfDiv = styled.div`
@@ -71,7 +84,23 @@ const InfDiv = styled.div`
     line-height: 1.2;
     @media screen and (min-width: 600px) and (max-width: 1440px) {
       font-size: 15px;
+
     }
+    @media only screen and (max-width: 768px) {
+      font-size: 15px;
+      text-align: center;
+      margin: 0;
+      width: 70%;
+    }
+    
+  }
+  @media only screen and (max-width: 768px) {
+    width: 100vw;
+    align-items: center;
+    border-radius: 0 0 0 0;
+    bottom: 15%;
+    height: 40%;
+    justify-content: start;
   }
 `;
 
@@ -85,6 +114,12 @@ const Title = styled.p`
   @media screen and (min-width: 600px) and (max-width: 1440px) {
     font-size: 40px;
   }
+  @media only screen and (max-width: 768px) {
+    font-size: 25px;
+    margin: 0;
+    margin-bottom: 30px;
+    margin-top: 7vh;
+  }
 `;
 
 const Dots = styled.div`
@@ -93,6 +128,9 @@ const Dots = styled.div`
   position: absolute;
   bottom: 3vh;
   z-index: 2;
+  @media only screen and (max-width: 768px) {
+    margin-left: -20px;
+  }
 `;
 
 const LittleDots = styled.div`
@@ -127,10 +165,6 @@ function SamplePrevArrow(props) {
 }
 
 export default function Banner() {
-
-
-
-
   const settings = {
     appendDots: dots => (
       <Dots
@@ -147,7 +181,7 @@ export default function Banner() {
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 1000,
-    autoplay: true,
+    autoplay: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
@@ -175,7 +209,7 @@ export default function Banner() {
             return (
               <Link to={`/${res.fields.type}`}>
                 <div onClick={() => setUser(res.fields.title)}>
-                  <h3 style={{ background: `url(${res.fields.bannerImage.fields.file.url}) no-repeat`, backgroundSize: "100% auto" }}>
+                  <h3 style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url}) `}}>
                     <InfDiv>
                       <Title>{res.fields.postTitle}</Title>
                       <label>
