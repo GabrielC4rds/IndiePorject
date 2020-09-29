@@ -56,6 +56,7 @@ const ArrowRight = styled.img`
   position: absolute;
   right: 0;
   top: 40%;
+  z-index: 2;
   @media only screen and (max-width: 768px) {
     top: 55%;
   }
