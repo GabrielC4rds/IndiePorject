@@ -42,7 +42,7 @@ const ArrowLeft = styled.img`
   height: 6vh;
   position: absolute;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   top: 40%;
   @media only screen and (max-width: 768px) {
     top: 55%;
@@ -56,7 +56,7 @@ const ArrowRight = styled.img`
   position: absolute;
   right: 0;
   top: 40%;
-  z-index: 2;
+  z-index: 3;
   @media only screen and (max-width: 768px) {
     top: 55%;
   }
@@ -182,7 +182,7 @@ export default function Banner() {
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 1000,
-    autoplay: false,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
