@@ -136,7 +136,7 @@ const ContentImage = styled.div`
   background-size: 100% auto ;
   background-repeat: no-repeat;
   @media only screen and (max-width: 768px) {
-    height: 20vh;
+    height: 25vh;
   }
 `;
 
@@ -152,7 +152,11 @@ const Space = styled.div`
   height: 3vh;
 `;
 
-
+const SpaceImage = styled.div`
+  width: 100%;
+  height: 8vh;
+  
+`;
 
 const DisqusDiv = styled.div`
   margin-top: 5vh;
@@ -210,15 +214,15 @@ function Artigo() {
               <label>{res.fields.introducaoText1}</label>
               <Space/>
               {res.fields.introducaoText2?<><label>{res.fields.introducaoText2}</label>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               <ContentImage style={{backgroundImage: `url(${res.fields.introducaoImage1.fields.file.url})`}}/>
-              <Space/>
+              <SpaceImage/>
               {res.fields.introducaoText3?<><label>{res.fields.introducaoText3}</label>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.introducaoImage2?<><ContentImage style={{backgroundImage: `url(${res.fields.introducaoImage2.fields.file.url})`}}/>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.introducaoText4?<><label>{res.fields.introducaoText4}</label>
               <Space/></>
@@ -229,28 +233,28 @@ function Artigo() {
               <Space/></>
               :null}
               {res.fields.desenvolvimentoText2?<><label>{res.fields.desenvolvimentoText2}</label>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoImage1?<><ContentImage style={{backgroundImage: `url(${res.fields.desenvolvimentoImage1.fields.file.url})`}}/>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoText3?<><label>{res.fields.desenvolvimentoText3}</label>
               <Space/></>
               :null}
               {res.fields.desenvolvimentoText4?<><label>{res.fields.desenvolvimentoText4}</label>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoImage2?<><ContentImage style={{backgroundImage: `url(${res.fields.desenvolvimentoImage2.fields.file.url})`}}/>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoText5?<><label>{res.fields.desenvolvimentoText5}</label>
               <Space/></>
               :null}
               {res.fields.desenvolvimentoText6?<><label>{res.fields.desenvolvimentoText6}</label>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoImage3?<><ContentImage style={{backgroundImage: `url(${res.fields.desenvolvimentoImage3.fields.file.url})`}}/>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoText7?<><label>{res.fields.desenvolvimentoText7}</label>
               <Space/></>
@@ -264,10 +268,11 @@ function Artigo() {
               <Space/></>
               :null}
               {res.fields.conclusaoText4?<><label>{res.fields.conclusaoText4}</label>
-              <Space/></>
+              </>
               :null}
+              <SpaceImage/>
               {res.fields.conclusaoImage1?<><ContentImage style={{backgroundImage: `url(${res.fields.conclusaoImage1.fields.file.url})`}}/>
-              <Space/></>
+              <SpaceImage/></>
               :null}
               <DisqusDiv>
                 <Disqus.DiscussionEmbed

@@ -144,7 +144,7 @@ const ContentImage = styled.div`
   background-size: 100% auto ;
   background-repeat: no-repeat;
   @media only screen and (max-width: 768px) {
-    height: 20vh;
+    height: 25vh;
   }
 `;
 
@@ -162,7 +162,7 @@ const Space = styled.div`
 
 const SpaceImage = styled.div`
   width: 100%;
-  height: 5vh;
+  height: 8vh;
   
 `;
 
@@ -223,13 +223,15 @@ function Analise() {
               <label>{res.fields.intText1}</label>
               <Space />
               {res.fields.intText2 ? <><label>{res.fields.intText2}</label>
-                <SpaceImage /></>
+                </>
                 : null}
+                <SpaceImage />
               <ContentImage style={{ backgroundImage: `url(${res.fields.intImage2.fields.file.url})` }} />
               <SpaceImage />
               {res.fields.intText3 ? <><label>{res.fields.intText3}</label>
-                <Space /></>
+                </>
                 : null}
+                <SpaceImage />
               {res.fields.intImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.intImage3.fields.file.url})` }} />
                 <SpaceImage /></>
                 : null}

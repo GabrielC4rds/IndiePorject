@@ -95,7 +95,7 @@ const BorderTitle = styled.div`
 const ItemsDiv = styled.div`
   width: 90%;
   height: auto;
-  margin-bottom: 6vh;
+  margin-bottom: 10vh;
  
 `;
 

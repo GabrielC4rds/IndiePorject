@@ -59,7 +59,7 @@ const Item = styled.div`
   display: flex;
   flex-direction: column;
   width: 20vw;
-  height: 62vh;
+  height: auto;
   margin-bottom: 5vh;
   margin-left: 2.2vw;
   margin-right: 2.2vw;
