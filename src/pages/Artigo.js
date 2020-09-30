@@ -169,12 +169,12 @@ function Artigo() {
   const [User, setUser] = useContext(StoreContext)
 
   const [all, setAll] = useState([]);
-
+  let name
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      let name = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/','');
+      name = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/','');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -203,7 +203,7 @@ function Artigo() {
   const disqusShortname = "indiecacao"
   const disqusConfig = {
     url: "http://localhost:3000",
-    identifier: `https://master.d3s7w3k063szjv.amplifyapp.com/${all.fields.url}`,
+    identifier: `https://master.d3s7w3k063szjv.amplifyapp.com/${name}`,
     title: "Title of Your Article"
   }
   return (
