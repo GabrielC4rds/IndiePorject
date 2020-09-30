@@ -210,8 +210,8 @@ function Analise() {
 
   const disqusShortname = "indiecacao"
   const disqusConfig = {
-    url: "http://localhost:3000",
-    identifier: "//indiecacao.disqus.com/count.js",
+    url: "https://master.d3s7w3k063szjv.amplifyapp.com/",
+    identifier: `https://master.d3s7w3k063szjv.amplifyapp.com/${all.fields.url}`,
     title: "Title of Your Article"
   }
   return (

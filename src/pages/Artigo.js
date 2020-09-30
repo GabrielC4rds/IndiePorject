@@ -203,7 +203,7 @@ function Artigo() {
   const disqusShortname = "indiecacao"
   const disqusConfig = {
     url: "http://localhost:3000",
-    identifier: "//indiecacao.disqus.com/count.js",
+    identifier: `https://master.d3s7w3k063szjv.amplifyapp.com/${all.fields.url}`,
     title: "Title of Your Article"
   }
   return (
