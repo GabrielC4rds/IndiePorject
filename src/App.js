@@ -13,7 +13,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 function App() {
@@ -51,6 +52,15 @@ function App() {
       <StoreProvider>
         <Router>
           <Switch>
+          <Route
+                exact
+                path="/"
+                render={() => {
+                    return (
+                      <Redirect to="/home" /> 
+                    )
+                }}
+              />
             {
               content != null?
              
@@ -74,7 +84,7 @@ function App() {
                     <Route path='/podcastpage'>
                       <PodcastPage />
                     </Route>
-                    <Route path="/">
+                    <Route path="/home">
                       <Home />
                     </Route>
                     </>
