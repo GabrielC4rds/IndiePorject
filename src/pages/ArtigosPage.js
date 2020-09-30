@@ -117,11 +117,16 @@ function ArtigosPage() {
 
   useEffect(() => {
     async function FetchMyApi() {
-
+      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let urlTitle = await url.replaceAll("%20", " ");
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
       setAll(allContent);
-      console.log(allContent.reverse());
+
+       window.onpopstate = function() {
+        //blah blah blah
+        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+       }
     }
     FetchMyApi();
   }, []);
@@ -134,15 +139,15 @@ function ArtigosPage() {
       {all.map((res) => {
         return (
 
-          <Item >
-            <Link to={`/${res.fields.type}`}>
-              <PostImage onClick={() => setUser(res.fields.title)} style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
+          <Item onClick={() => window.location.href=`/${res.fields.url}`}>
+            
+              <PostImage  onClick={() => setUser(res.fields.title)} style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
               <TextDiv>
 
                 <Title onClick={() => setUser(res.fields.title)}>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
                 <DataText onClick={() => setUser(res.fields.title)}>{res.fields.dataSign}</DataText>
               </TextDiv>
-            </Link>
+            
           </Item>
         )
       })}

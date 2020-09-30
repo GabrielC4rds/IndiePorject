@@ -8,7 +8,8 @@ import {
   Route,
   Link,
   useRouteMatch,
-  useParams
+  useParams,
+  BrowserRouter
 } from "react-router-dom";
 import Icon from '@ant-design/icons';
 import Carousel from 'react-multi-carousel';
@@ -279,6 +280,9 @@ export default function ListPodcasts() {
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "podcast");
       setAll(allContent.reverse());
+      console.log("aqui imbecil",allContent)
+
+      
     }
     FetchMyApi();
   }, []);
@@ -291,14 +295,12 @@ export default function ListPodcasts() {
         <BorderTitle />
       </TitleDiv>
       <ItemsDiv>
-        {console.log(all)}
         <Slider  {...settings}>
           {
             all.slice(0, 12).map((res) => {
               return (
-                <Link to="/podcast">
-                  <Item onClick={() => setUser(res.fields.title)}>
-                    {console.log(User)}
+                  <Item onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
+                    
                     <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
                     <BannerTop>
                        <label>{res.fields.type}</label>
@@ -314,7 +316,6 @@ export default function ListPodcasts() {
                   </DescItem>
                     </TextDiv>
                   </Item>
-                </Link>
               )
             })
           }

@@ -132,10 +132,17 @@ function PodcastPage() {
 
   useEffect(() => {
     async function FetchMyApi() {
-
+      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let urlTitle = await url.replaceAll("%20", " ");
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "podcast");
       setAll(allContent.reverse());
+
+
+      window.onpopstate = function() {
+        //blah blah blah
+        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+       }
     }
     FetchMyApi();
   }, []);
@@ -144,13 +151,12 @@ function PodcastPage() {
     <All>
       <Header />
       <ContentDiv>
-        {console.log("eu", all)}
         <TitleDiv>Todos os podcasts</TitleDiv>
         <ItemDiv>
           {all.map((res) => {
             return (
-              <Item onClick={() => setUser(res.fields.title)}>
-                <Link to={`/${res.fields.type}`}>
+              <Item onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
+                
                 <PostImage style={{backgroundImage: `url(${res.fields.bannerImage.fields.file.url})`}}/>
                 <TextDiv>
                   <Title>
@@ -161,7 +167,7 @@ function PodcastPage() {
                   </MiniDesc>
                   <DataText>{res.fields.dataSign}</DataText>
                 </TextDiv>
-              </Link>
+              
               </Item>
             )
           })}

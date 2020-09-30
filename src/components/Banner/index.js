@@ -208,8 +208,8 @@ export default function Banner() {
         {
           all.slice(0, 3).map((res) => {
             return (
-              <Link to={`/${res.fields.type}`}>
-                <div onClick={() => setUser(res.fields.title)}>
+              
+                <div onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
                   <h3 style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url}) `}}>
                     <InfDiv>
                       <Title>{res.fields.postTitle}</Title>
@@ -219,7 +219,7 @@ export default function Banner() {
                     </InfDiv>
                   </h3>
                 </div>
-              </Link>
+             
             )
           })
         }

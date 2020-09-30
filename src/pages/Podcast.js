@@ -201,14 +201,30 @@ function Podcast() {
 
   useEffect(() => {
     async function FetchMyApi() {
-      if (!User) {
-        window.location.href = "/";
-      } else {
-        let items = await ConnectContent();
-        let allContent = await items.filter(x => x.fields.title == User);
-        setAll(allContent);
+      let items = await ConnectContent();
+      let setence = items[0].fields.title.toString();
+      let name = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/','');
+      let allContent = await items.filter(x => x.fields.url == name);
+      // setence == name ?
+      // setAll(allContent)
+      // :
+      // setAll(allContent);
+      // console.log("all", all);
 
-      }
+      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let urlTitle = await url.replaceAll("%20", " ");
+      let contentName = await items.find(x => x.fields.url == urlTitle);
+      
+      window.onpopstate = function() {
+        //blah blah blah
+        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+       }
+      window.addEventListener('locationchange', function(){
+        console.log("mudou");
+        contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+    })
+        
+      setAll(allContent)
     }
     FetchMyApi();
   }, []);

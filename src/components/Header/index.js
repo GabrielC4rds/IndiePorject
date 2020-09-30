@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+  BrowserRouter
+} from "react-router-dom";
 
 const Content = styled.div`
   display: flex;
@@ -196,8 +205,8 @@ function Header() {
           <img src="./icon/close.svg"/>
         </CloseButton>
           <div>
-            <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
-            <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
+         <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
+        <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
             <label onClick={() => window.location.href = "/#Contato"}>CONTATO</label>
           </div>
       </MenuMobile>
