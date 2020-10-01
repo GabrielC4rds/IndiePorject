@@ -25,7 +25,7 @@ function App() {
   const User = useContext(StoreContext);
   useEffect(() => {
     async function FetchMyApi() {
-      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
+      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let items = await ConnectContent();
       let contentName = await items.find(x => x.fields.url == urlTitle);
