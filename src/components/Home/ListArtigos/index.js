@@ -66,6 +66,7 @@ const Item = styled.div`
   height: 40vh;
   width: 20vw !important;
   margin: 0 20px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,6 +158,7 @@ const BannerTop = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
   label{
     text-transform: uppercase;
     font-weight: bold;

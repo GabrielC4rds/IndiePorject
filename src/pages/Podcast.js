@@ -231,8 +231,8 @@ function Podcast() {
 
   const disqusShortname = "indiecacao"
   const disqusConfig = {
-    url: "http://localhost:3000",
-    identifier: `podcast`,
+    url: `https://master.d3s7w3k063szjv.amplifyapp.com/${name}`,
+    identifier: name,
     title: "Title of Your Article"
   }
   return (
