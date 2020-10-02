@@ -216,7 +216,7 @@ function Analise() {
   const disqusConfig = {
     url: disqusUrl,
     identifier: disqusId,
-    title: "Title of Your Article"
+    title: disqusId
   }
   return (
     <All>
