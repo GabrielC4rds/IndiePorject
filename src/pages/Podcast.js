@@ -239,7 +239,7 @@ function Podcast() {
   const disqusConfig = {
     url: disqusUrl,
     identifier: disqusId,
-    title: disqusId
+    title: name
   }
   return (
     <All>
