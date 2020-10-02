@@ -198,6 +198,17 @@ function Header() {
   const handleMove = () => {
       document.getElementById("backMobile").style.animation="menuTransition 0.5s forwards"
   }
+
+  const ScrollDown = () => {
+    window.scrollTo(0,document.body.scrollHeight);
+  }
+
+  const ScrollDownM = () => {
+    revertHandleMove();
+    window.scrollTo(0,document.body.scrollHeight);
+  }
+
+
   return (
     <>
       <MenuMobile id="backMobile">
@@ -207,7 +218,7 @@ function Header() {
           <div>
          <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
         <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
-            <label onClick={() => window.location.href = "/#Contato"}>CONTATO</label>
+            <label onClick={() => ScrollDownM()}>CONTATO</label>
           </div>
       </MenuMobile>
     <Content>
@@ -222,7 +233,7 @@ function Header() {
         <ItemsDiv>
           <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
           <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
-          <label onClick={() => window.location.href = "#Contato"}>CONTATO</label>
+          <label  onClick={() => ScrollDown()}>CONTATO</label>
           {/* <Search /> */}
         </ItemsDiv>
         
