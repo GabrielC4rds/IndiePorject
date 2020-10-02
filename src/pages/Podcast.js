@@ -198,11 +198,16 @@ function Podcast() {
   const [User, setUser] = useContext(StoreContext)
 
   const [all, setAll] = useState([]);
+  const [disqusUrl, setDisquisUrl] = useState([]);
+  const [disqusId, setDisquisId] = useState([]);
   let name;
+  let nameUrl;
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
+      nameUrl = await window.location.href.toString();
+
       name = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/','');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
@@ -210,11 +215,12 @@ function Podcast() {
       // :
       // setAll(allContent);
       // console.log("all", all);
-
+      setDisquisId(name);
+      setDisquisUrl(nameUrl);
       let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
-      
+      console.log(name);
       window.onpopstate = function() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
@@ -231,8 +237,8 @@ function Podcast() {
 
   const disqusShortname = "indiecacao"
   const disqusConfig = {
-    url: "https://master.d3s7w3k063szjv.amplifyapp.com/}",
-    identifier: "podcast",
+    url: disqusUrl,
+    identifier: disqusId,
     title: "Title of Your Article"
   }
   return (

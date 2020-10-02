@@ -169,7 +169,10 @@ function Artigo() {
   const [User, setUser] = useContext(StoreContext)
 
   const [all, setAll] = useState([]);
-  let name
+  const [disqusUrl, setDisquisUrl] = useState([]);
+  const [disqusId, setDisquisId] = useState([]);
+  let name;
+  let nameUrl;
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
@@ -181,7 +184,8 @@ function Artigo() {
       // :
       // setAll(allContent);
       // console.log("all", all);
-
+      setDisquisId(name);
+      setDisquisUrl(nameUrl);
       let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
@@ -202,8 +206,8 @@ function Artigo() {
 
   const disqusShortname = "indiecacao"
   const disqusConfig = {
-    url: "https://master.d3s7w3k063szjv.amplifyapp.com/",
-    identifier: "artigo",
+    url: disqusUrl,
+    identifier: disqusId,
     title: "Title of Your Article"
   }
   return (
