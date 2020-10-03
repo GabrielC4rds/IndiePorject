@@ -118,6 +118,20 @@ const Top = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 5vw;
+    p{
+      margin-bottom: 1vh;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      
+      a{
+        color: #fff;
+      }
+     
+      @media screen and (min-width: 600px) and (max-width: 1440px) {
+        font-size: 15px;
+      }
+    }
     label{
       margin-bottom: 1vh;
       color: #fff;
@@ -148,7 +162,7 @@ function Footer() {
   return (
     <Content id="Contato">
       <LeftDiv>
-        <img src="./icon/Logo-Clara.png" />
+        <img src="./icon/Logo-Clara2.png" />
         <div style={{ width: "auto", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>
           <Top>
             <div>
@@ -156,8 +170,8 @@ function Footer() {
               <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
             </div>
             <div>
-              <label>FALE CONOSCO</label>
-              <label><a class="mailto" href="mailto:contact@test.com">INDIECACAO.COM.BR</a></label>
+              <p>FALE CONOSCO</p>
+              <label><a class="mailto" href="mailto:contato@indiecacao.com.br">INDIECACAO.COM.BR</a></label>
             </div>
           </Top>
           <p>
@@ -168,9 +182,9 @@ function Footer() {
       <RightDiv>
         <label>Nos acompanhe</label>
         <div>
-          <img src="./icon/instagram-brands.svg" />
-          <img src="./icon/spotify-brands.svg" />
-          <img src="./icon/twitter-brands.svg" />
+          <img onClick={() => window.open("https://www.instagram.com/indiecacaogames/")} target="_blank" src="./icon/instagram-brands.svg" />
+          <img onClick={() => window.open("https://open.spotify.com/show/2uWVpGhAqmd40iPPD45Q2S")} target="_blank" src="./icon/spotify-brands.svg" />
+          <img onClick={() => window.open("https://twitter.com/indiecacaogames")} target="_blank" src="./icon/twitter-brands.svg" />
         </div>
         <p>
             © 2020 Indiecação Conteúdo Digital LTDA Todos os direitos reservados

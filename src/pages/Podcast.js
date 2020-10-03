@@ -266,11 +266,11 @@ function Podcast() {
               </IframeDiv>
               <p>Nos acompanhe:</p>
               <LinksDiv>
-                <a>Spotify</a>
+                <a href="https://open.spotify.com/show/2uWVpGhAqmd40iPPD45Q2S">Spotify</a>
                 <DividerRight/>
                 <a>Google Podcast</a>
                 <DividerRight/>
-                <a>Anchor</a>
+                <a href="https://anchor.fm/indiecao">Anchor</a>
               </LinksDiv>
               <p>Participantes:</p>
               {res.fields.participantes.map((x) => {

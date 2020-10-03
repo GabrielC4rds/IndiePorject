@@ -224,7 +224,7 @@ function Header() {
     <Content>
       <All>
         <Logo onClick={() => window.location.href = "/"}>
-          <img src="./icon/Logo-Clara.png"></img>
+          <img src="./icon/Logo-Clara2.png"></img>
           <label>INDIECAÇÃO</label>
         </Logo>
         <MenuButton onClick={() => handleMove()}>
