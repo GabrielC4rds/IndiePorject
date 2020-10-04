@@ -249,7 +249,7 @@ function Podcast() {
         return (
           <>
            <Helmet>
-              <meta name='description' content='Contact us if you have any question or requests'/>
+              <meta name='description' content={res.fields.descriptionText}/>
             </Helmet>
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>

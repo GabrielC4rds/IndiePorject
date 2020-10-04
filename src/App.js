@@ -9,7 +9,7 @@ import { StoreProvider } from './Store';
 import ArtigosPage from './pages/ArtigosPage';
 import { UserContext, StoreContext } from './Store';
 import { ConnectContent } from './ConfigContent';
-
+import {Helmet} from "react-helmet";
 
 import {
   BrowserRouter as Router,
@@ -51,6 +51,9 @@ function App() {
 
   return (
     <>
+    <Helmet>
+      <meta name='description' content='Contact us if you have any question or requests'/>
+    </Helmet>
       <StoreProvider>
         <Router>
           <Switch>
