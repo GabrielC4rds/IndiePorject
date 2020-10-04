@@ -250,7 +250,7 @@ function Podcast() {
           <>
            <Helmet>
                 <meta charSet="utf-8" />
-                <meta property="og:description" content={res.fields.description} />
+                <meta name="description" content={res.fields.description} />
                 <link rel="canonical" href={nameUrl} />
             </Helmet>
             <Header />
