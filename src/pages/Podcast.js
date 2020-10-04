@@ -6,7 +6,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
-
+import MetaTags from 'react-meta-tags';
 const All = styled.div`
   display: flex;
   flex-direction: column;
@@ -246,6 +246,10 @@ function Podcast() {
       {all.map((res) => {
         return (
           <>
+          <MetaTags>
+          <meta name="description" content={res.fields.res.fields.descriptionText} />
+          <meta property="og:image" content={re.fields.banner.fields.file.url} />
+          </MetaTags>
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
