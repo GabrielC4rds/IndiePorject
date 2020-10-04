@@ -6,7 +6,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
-import MetaTags from 'react-meta-tags';
+import DocumentMeta from 'react-document-meta';
 const All = styled.div`
   display: flex;
   flex-direction: column;
@@ -202,6 +202,18 @@ function Podcast() {
   const [disqusId, setDisquisId] = useState([]);
   let name;
   let nameUrl;
+
+  const meta = {
+    title: 'Some Meta Title',
+    description: all.fields.descriptionText,
+    canonical: 'http://example.com/path/to/page',
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: 'react,meta,document,html,tags'
+      }
+    }
+  };
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
@@ -243,13 +255,14 @@ function Podcast() {
   }
   return (
     <All>
+      <DocumentMeta {...meta}>
       {all.map((res) => {
         return (
           <>
-          <MetaTags>
+          {/* <MetaTags>
           <meta name="description" content={res.fields.res.fields.descriptionText} />
           <meta property="og:image" content={res.fields.banner.fields.file.url} />
-          </MetaTags>
+          </MetaTags> */}
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
@@ -306,6 +319,7 @@ function Podcast() {
           </>
         )
       })}
+      </DocumentMeta>
     </All>
   );
 }
