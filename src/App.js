@@ -52,6 +52,7 @@ function App() {
   return (
     <>
     <Helmet>
+      
       <meta name='description' content='Contact us if you have any question or requests'/>
     </Helmet>
       <StoreProvider>

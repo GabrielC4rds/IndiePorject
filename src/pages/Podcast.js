@@ -249,6 +249,7 @@ function Podcast() {
         return (
           <>
            <Helmet>
+           <title>{res-fields.podcastTitle}</title>
               <meta name='description' content={res.fields.descriptionText}/>
             </Helmet>
             <Header />
