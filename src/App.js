@@ -52,8 +52,8 @@ function App() {
   return (
     <>
     <Helmet>
-      
-      <meta name='description' content='Contact us if you have any question or requests'/>
+    <title>Indiecação</title>
+      <meta name='description' content='Análises, Podcasts e muito mais sobre o mundo dos jogos Indie'/>
     </Helmet>
       <StoreProvider>
         <Router>

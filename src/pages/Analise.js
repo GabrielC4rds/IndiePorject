@@ -6,6 +6,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
+import {Helmet} from "react-helmet";
 
 const All = styled.div`
   display: flex;
@@ -223,6 +224,10 @@ function Analise() {
       {all.map((res) => {
         return (
           <>
+          <Helmet>
+              <title>{res.fields.podcastTitle}</title>
+              <meta name='description' content={res.fields.descriptionText}/>
+            </Helmet>
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
