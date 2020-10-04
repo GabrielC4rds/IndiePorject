@@ -241,7 +241,7 @@ function SamplePrevArrow(props) {
 }
 
 export default function ListPodcasts() {
-
+  var slider = ('.slider');
   const settings = {
     appendDots: dots => (
       <Dots
@@ -265,25 +265,26 @@ export default function ListPodcasts() {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2
+          slidesToScroll: 1,
+          infinite: slider.length > 2?true: false,
+          
         }
       }
 
     ]
-
   };
-
 
 
   const [all, setAll] = useState([]);
   const [User, setUser] = useContext(StoreContext);
-
+  var arrayNum;
   useEffect(() => {
     async function FetchMyApi() {
 
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
       setAll(allContent.reverse());
+      arrayNum = await all.length;
     }
     FetchMyApi();
   }, []);
@@ -297,6 +298,7 @@ export default function ListPodcasts() {
       </TitleDiv>
       <ItemsDiv>
         <Slider {...settings}>
+          
           {
             all.slice(0, 12).map((res) => {
               return (

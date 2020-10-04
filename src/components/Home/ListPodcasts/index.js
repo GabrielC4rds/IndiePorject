@@ -241,8 +241,11 @@ function SamplePrevArrow(props) {
 }
 
 export default function ListPodcasts() {
-
-  const settings = {
+  var slider = ('.slider');
+  var sliderCount;
+  var settings;
+  
+    settings = {
     appendDots: dots => (
       <Dots
       >
@@ -260,7 +263,6 @@ export default function ListPodcasts() {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    transformEnabled: false,
     // mobileFirst:true,
     responsive: [
       {
@@ -268,15 +270,19 @@ export default function ListPodcasts() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: true
+          infinite: false,
         }
       }
 
     ]
   };
 
+
+
+
   const [all, setAll] = useState([]);
   const [User, setUser] = useContext(StoreContext);
+  var Count;
 
   useEffect(() => {
     async function FetchMyApi() {
@@ -284,11 +290,12 @@ export default function ListPodcasts() {
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "podcast");
       setAll(allContent.reverse());
-      console.log("aqui imbecil",allContent)
-
+      
+      Count = 3;
       
     }
     FetchMyApi();
+    
   }, []);
 
 
@@ -299,6 +306,7 @@ export default function ListPodcasts() {
         <BorderTitle />
       </TitleDiv>
       <ItemsDiv>
+      {console.log("aqui", sliderCount)}
         <Slider  {...settings}>
           {
             all.slice(0, 12).map((res) => {
