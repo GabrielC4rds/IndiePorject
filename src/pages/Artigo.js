@@ -99,6 +99,8 @@ const AllPost = styled.div`
   label{
     font-weight: 500;
     font-size: 22px;
+    line-height: 30px;
+    margin-bottom: 20px;
   }
   a{
     color: #316CE1;
@@ -177,7 +179,7 @@ function Artigo() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/','');
+      name = await window.location.href.toString().replace('http://localhost:3000/','');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -186,7 +188,7 @@ function Artigo() {
       // console.log("all", all);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
@@ -232,63 +234,63 @@ function Artigo() {
               </label>
               <Divider/>
               <p>{res.fields.intTitle}</p>
-              <label>{res.fields.introducaoText1}</label>
+              <label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText1 }} ></label>
               <Space/>
-              {res.fields.introducaoText2?<><label>{res.fields.introducaoText2}</label>
+              {res.fields.introducaoText2?<><label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText2 }}></label>
               <SpaceImage/></>
               :null}
               <ContentImage style={{backgroundImage: `url(${res.fields.introducaoImage1.fields.file.url})`}}/>
               <SpaceImage/>
-              {res.fields.introducaoText3?<><label>{res.fields.introducaoText3}</label>
+              {res.fields.introducaoText3?<><label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText3 }}></label>
               <SpaceImage/></>
               :null}
               {res.fields.introducaoImage2?<><ContentImage style={{backgroundImage: `url(${res.fields.introducaoImage2.fields.file.url})`}}/>
               <SpaceImage/></>
               :null}
-              {res.fields.introducaoText4?<><label>{res.fields.introducaoText4}</label>
+              {res.fields.introducaoText4?<><label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText4 }}></label>
               <Space/></>
               :null}
               <Divider/>
               <p>{res.fields.desTitle}</p>
-              {res.fields.desenvolvimentoText1?<><label>{res.fields.desenvolvimentoText1}</label>
+              {res.fields.desenvolvimentoText1?<><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText1 }}></label>
               <Space/></>
               :null}
-              {res.fields.desenvolvimentoText2?<><label>{res.fields.desenvolvimentoText2}</label>
+              {res.fields.desenvolvimentoText2?<><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText2 }}></label>
               <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoImage1?<><ContentImage style={{backgroundImage: `url(${res.fields.desenvolvimentoImage1.fields.file.url})`}}/>
               <SpaceImage/></>
               :null}
-              {res.fields.desenvolvimentoText3?<><label>{res.fields.desenvolvimentoText3}</label>
+              {res.fields.desenvolvimentoText3?<><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText3 }}></label>
               <Space/></>
               :null}
-              {res.fields.desenvolvimentoText4?<><label>{res.fields.desenvolvimentoText4}</label>
+              {res.fields.desenvolvimentoText4?<><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText4 }}></label>
               <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoImage2?<><ContentImage style={{backgroundImage: `url(${res.fields.desenvolvimentoImage2.fields.file.url})`}}/>
               <SpaceImage/></>
               :null}
-              {res.fields.desenvolvimentoText5?<><label>{res.fields.desenvolvimentoText5}</label>
+              {res.fields.desenvolvimentoText5?<><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText5 }}></label>
               <Space/></>
               :null}
-              {res.fields.desenvolvimentoText6?<><label>{res.fields.desenvolvimentoText6}</label>
+              {res.fields.desenvolvimentoText6?<><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText6 }}></label>
               <SpaceImage/></>
               :null}
               {res.fields.desenvolvimentoImage3?<><ContentImage style={{backgroundImage: `url(${res.fields.desenvolvimentoImage3.fields.file.url})`}}/>
               <SpaceImage/></>
               :null}
-              {res.fields.desenvolvimentoText7?<><label>{res.fields.desenvolvimentoText7}</label>
+              {res.fields.desenvolvimentoText7?<><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText7 }}></label>
               <Space/></>
               :null}
               <Divider/>
               <p>{res.fields.concTitle}</p>
-              {res.fields.conclusaoText1?<><label>{res.fields.conclusaoText1}</label>
+              {res.fields.conclusaoText1?<><label dangerouslySetInnerHTML={{ __html: res.fields.conclusaoText1 }}></label>
               <Space/></>
               :null}
-              {res.fields.conclusaoText2?<><label>{res.fields.conclusaoText2}</label>
+              {res.fields.conclusaoText2?<><label dangerouslySetInnerHTML={{ __html: res.fields.conclusaoText2 }}></label>
               <Space/></>
               :null}
-              {res.fields.conclusaoText4?<><label>{res.fields.conclusaoText4}</label>
+              {res.fields.conclusaoText4?<><label dangerouslySetInnerHTML={{ __html: res.fields.conclusaoText3 }}></label>
               </>
               :null}
               <SpaceImage/>

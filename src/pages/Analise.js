@@ -185,7 +185,7 @@ function Analise() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/','');
+      name = await window.location.href.toString().replace('http://localhost:3000/','');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -194,7 +194,7 @@ function Analise() {
       // console.log("all", all);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
@@ -235,70 +235,70 @@ function Analise() {
               </BackgroundDiv>
             </Banner>
             <AllPost>
-              <label>
-                {res.fields.description}
+              <label dangerouslySetInnerHTML={{ __html: res.fields.description }}>
+              
               </label>
               <Divider />
               <p>{res.fields.intTitle}</p>
-              <label>{res.fields.intText1}</label>
+              <label dangerouslySetInnerHTML={{ __html: res.fields.intText1 }}></label>
               <Space />
-              {res.fields.intText2 ? <><label>{res.fields.intText2}</label>
+              {res.fields.intText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText2 }}></label>
                 </>
                 : null}
                 <SpaceImage />
               <ContentImage style={{ backgroundImage: `url(${res.fields.intImage2.fields.file.url})` }} />
               <SpaceImage />
-              {res.fields.intText3 ? <><label>{res.fields.intText3}</label>
+              {res.fields.intText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText3 }}></label>
                 </>
                 : null}
                 <SpaceImage />
               {res.fields.intImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.intImage3.fields.file.url})` }} />
                 <SpaceImage /></>
                 : null}
-              {res.fields.intText4 ? <><label>{res.fields.intText4}</label>
+              {res.fields.intText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText4 }}></label>
                 <Space /></>
                 : null}
               <Divider />
               <p>{res.fields.desTitle}</p>
-              {res.fields.desText1 ? <><label>{res.fields.desText1}</label>
+              {res.fields.desText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText1 }}></label>
                 <Space /></>
                 : null}
-              {res.fields.desText2 ? <><label>{res.fields.desText2}</label>
+              {res.fields.desText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText2 }}></label>
                 <SpaceImage /></>
                 : null}
               {res.fields.desImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage1.fields.file.url})` }} />
                 <SpaceImage /></>
                 : null}
-              {res.fields.desText3 ? <><label>{res.fields.desText3}</label>
+              {res.fields.desText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText3 }}></label>
                 <Space /></>
                 : null}
-              {res.fields.desText4 ? <><label>{res.fields.desText4}</label>
+              {res.fields.desText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText4 }}></label>
                 <SpaceImage /></>
                 : null}
               {res.fields.desImage2 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage2.fields.file.url})` }} />
                 <SpaceImage /></>
                 : null}
-              {res.fields.desText5 ? <><label>{res.fields.desText5}</label>
+              {res.fields.desText5 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText5 }}></label>
                 <Space /></>
                 : null}
-              {res.fields.desText6 ? <><label>{res.fields.desText6}</label>
+              {res.fields.desText6 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText6 }}></label>
                 <SpaceImage /></>
                 : null}
               {res.fields.desImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage3.fields.file.url})` }} />
                 <SpaceImage /></>
                 : null}
-              {res.fields.desText7 ? <><label>{res.fields.desText7}</label>
+              {res.fields.desText7 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText7 }}></label>
                 <Space /></>
                 : null}
               <Divider />
               <p>{res.fields.concTitle}</p>
-              {res.fields.concText1 ? <><label>{res.fields.concText1}</label>
+              {res.fields.concText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText1 }}></label>
                 <Space /></>
                 : null}
-              {res.fields.concText2 ? <><label>{res.fields.concText2}</label>
+              {res.fields.concText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText2 }}></label>
                 <Space /></>
                 : null}
-              {res.fields.concText3 ? <><label>{res.fields.concText3}</label>
+              {res.fields.concText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText3 }}></label>
                 <SpaceImage /></>
                 : null}
               {res.fields.concImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.concImage1.fields.file.url})` }} />
