@@ -185,7 +185,7 @@ function Analise() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/','');
+      name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -194,7 +194,7 @@ function Analise() {
       // console.log("all", all);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
