@@ -258,11 +258,11 @@ function Podcast() {
       {all.map((res) => {
         return (
           <>
-           <Helmet>
+           {/* <Helmet>
                 <meta charSet="utf-8" />
                 <meta property="og:description" content={res.fields.description} />
                 <link rel="canonical" href={nameUrl} />
-            </Helmet>
+            </Helmet> */}
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
