@@ -6,6 +6,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
+import {Helmet} from "react-helmet";
 const All = styled.div`
   display: flex;
   flex-direction: column;
@@ -202,17 +203,7 @@ function Podcast() {
   let name;
   let nameUrl;
 
-  const meta = {
-    title: 'Some Meta Title',
-    description: all.fields.descriptionText,
-    canonical: 'http://example.com/path/to/page',
-    meta: {
-      charset: 'utf-8',
-      name: {
-        keywords: 'react,meta,document,html,tags'
-      }
-    }
-  };
+  
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
@@ -257,6 +248,11 @@ function Podcast() {
       {all.map((res) => {
         return (
           <>
+           <Helmet>
+                <meta charSet="utf-8" />
+                <meta property="og:description" content={res.fields.description} />
+                <link rel="canonical" href={nameUrl} />
+            </Helmet>
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
