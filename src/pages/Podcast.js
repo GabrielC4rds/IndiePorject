@@ -248,7 +248,7 @@ function Podcast() {
           <>
           <MetaTags>
           <meta name="description" content={res.fields.res.fields.descriptionText} />
-          <meta property="og:image" content={re.fields.banner.fields.file.url} />
+          <meta property="og:image" content={res.fields.banner.fields.file.url} />
           </MetaTags>
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
