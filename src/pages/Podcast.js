@@ -6,7 +6,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
-import DocumentMeta from 'react-document-meta';
+import {Helmet} from "react-helmet";
 const All = styled.div`
   display: flex;
   flex-direction: column;
@@ -255,14 +255,14 @@ function Podcast() {
   }
   return (
     <All>
-      <DocumentMeta {...meta}>
       {all.map((res) => {
         return (
           <>
-          {/* <MetaTags>
-          <meta name="description" content={res.fields.res.fields.descriptionText} />
-          <meta property="og:image" content={res.fields.banner.fields.file.url} />
-          </MetaTags> */}
+           <Helmet>
+                <meta charSet="utf-8" />
+                <meta property="og:description" content={res.fields.description} />
+                <link rel="canonical" href={nameUrl} />
+            </Helmet>
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
@@ -319,7 +319,6 @@ function Podcast() {
           </>
         )
       })}
-      </DocumentMeta>
     </All>
   );
 }
