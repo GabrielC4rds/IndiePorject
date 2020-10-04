@@ -6,7 +6,6 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
-import {Helmet} from "react-helmet";
 const All = styled.div`
   display: flex;
   flex-direction: column;
@@ -258,11 +257,6 @@ function Podcast() {
       {all.map((res) => {
         return (
           <>
-           {/* <Helmet>
-                <meta charSet="utf-8" />
-                <meta property="og:description" content={res.fields.description} />
-                <link rel="canonical" href={nameUrl} />
-            </Helmet> */}
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
