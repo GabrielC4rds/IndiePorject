@@ -25,6 +25,11 @@ function App() {
   const [all, setAll] = useState([]);
   const [content, setContent] = useState([]);
   const User = useContext(StoreContext);
+
+  const Reload = () =>{
+    document.location.reload(true);
+  }
+
   useEffect(() => {
     async function FetchMyApi() {
       let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
@@ -47,6 +52,7 @@ function App() {
       //  setAll(contentType);
     }
     FetchMyApi();
+    
   }, []);
 
   return (
@@ -63,7 +69,9 @@ function App() {
                 path="/"
                 render={() => {
                     return (
-                      <Redirect to="/home" /> 
+                      <Redirect to="/home" >
+                      {() =>Reload()} 
+                      </Redirect>
                     )
                 }}
               />
