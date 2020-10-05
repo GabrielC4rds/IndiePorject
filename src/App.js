@@ -63,11 +63,10 @@ function App() {
           <Route
                 exact
                 path="/"
-                render={() => {
+                render={() =>(
                     
-                      <Redirect to="/home"/>
-
-                }}
+                    <Redirect to="/home"/>
+  )}
               />
             {
               content != null?
