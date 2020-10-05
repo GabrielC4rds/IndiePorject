@@ -9,7 +9,6 @@ import { StoreProvider } from './Store';
 import ArtigosPage from './pages/ArtigosPage';
 import { UserContext, StoreContext } from './Store';
 import { ConnectContent } from './ConfigContent';
-import {Helmet} from "react-helmet";
 
 import {
   BrowserRouter as Router,
@@ -57,10 +56,7 @@ function App() {
 
   return (
     <>
-    <Helmet>
-    <title>Indiecação</title>
-      <meta name='description' content='Análises, Podcasts e muito mais sobre o mundo dos jogos Indie'/>
-    </Helmet>
+    
       <StoreProvider>
         <Router>
           <Switch>
@@ -70,7 +66,6 @@ function App() {
                 render={() => {
                     return (
                       <Redirect to="/home" >
-                      {() =>Reload()} 
                       </Redirect>
                     )
                 }}
