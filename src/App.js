@@ -79,16 +79,15 @@ function App() {
                     <Route path="/:User">
                       <Analise />
                     </Route> :
-                    null:
+                    <Route path="/home">
+                      <Home />
+                    </Route>:
                     <>
                     <Route path='/artigospage'>
                       <ArtigosPage />
                     </Route>
                     <Route path='/podcastpage'>
                       <PodcastPage />
-                    </Route>
-                    <Route path="/home">
-                      <Home />
                     </Route>
                     </>
             }
