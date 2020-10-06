@@ -60,14 +60,10 @@ function App() {
       <StoreProvider>
         <Router>
           <Switch>
-          <Route
-                exact
-                path="/"
-                render={() =>(
-                    
-                    <Redirect to="/home"/>
-  )}
-              />
+          <Route exact path="/">
+            <Redirect to="/home"/>
+          </Route>
+              
             {
               content != null?
              
