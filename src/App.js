@@ -61,12 +61,10 @@ function App() {
         <Router >
           <Switch>
           <Route exact path="/">
-          <Home />
+            <Home />
           </Route>
               
             {
-              content != null?
-             
               content == "podcast" ?
                 <Route path='/:User'>
                   <Podcast />
@@ -79,9 +77,6 @@ function App() {
                     <Route path="/:User">
                       <Analise />
                     </Route> :
-                    <Route path="/home">
-                      <Home />
-                    </Route>:
                     <>
                     <Route path='/artigospage'>
                       <ArtigosPage />
