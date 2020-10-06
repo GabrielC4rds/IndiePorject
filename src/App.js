@@ -58,7 +58,7 @@ function App() {
     <>
     
       <StoreProvider>
-        <Router>
+        <Router >
           <Switch>
           <Route exact path="/">
             <Redirect push to="/home"/>
