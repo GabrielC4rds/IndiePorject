@@ -36,7 +36,7 @@ function App() {
       let items = await ConnectContent();
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
-      setContent(contentName? contentName.fields.type: null);
+      setContent(await contentName? await contentName.fields.type: null);
       window.onpopstate = function() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
@@ -63,6 +63,23 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+            {/* <Route path='/:User'>
+              <Podcast />
+            </Route> 
+              <Route path="/:User">
+                <Artigo />
+              </Route> 
+                <Route path="/:User">
+                  <Analise />
+                </Route> 
+                
+                <Route path='/artigospage'>
+                  <ArtigosPage />
+                </Route>
+                <Route path='/podcastpage'>
+                  <PodcastPage />
+                </Route> */}
+                
               
             {
               content == "podcast" ?
