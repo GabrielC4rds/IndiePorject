@@ -61,7 +61,7 @@ function App() {
         <Router >
           <Switch>
           <Route exact path="/">
-            <Redirect push to="/home"/>
+          <Home />
           </Route>
               
             {
@@ -91,8 +91,8 @@ function App() {
                       <Home />
                     </Route>
                     </>
-                    
             }
+                    
 
           </Switch>
         </Router>
