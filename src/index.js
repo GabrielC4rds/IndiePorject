@@ -9,13 +9,11 @@ import { HashRouter } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
 
     <StoreProvider>
 
       <App />
     </StoreProvider>
-    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
