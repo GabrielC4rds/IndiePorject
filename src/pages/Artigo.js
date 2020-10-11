@@ -6,6 +6,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
+import { StoreProvider } from '../Store';
 
 const All = styled.div`
   display: flex;
@@ -175,30 +176,27 @@ function Artigo() {
   const [disqusId, setDisquisId] = useState([]);
   let name;
   let nameUrl;
+  
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
-      let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
+      // let setence = items[0].fields.title.toString();
+       name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
+      // let url = await window.location.href.toString().replace('http://localhost:3000/', '');
+      // name = "a-beleza-de-skullgirls";
+      let url = name;
       let allContent = await items.filter(x => x.fields.url == name);
-      // setence == name ?
-      // setAll(allContent)
-      // :
-      // setAll(allContent);
-      // console.log("all", all);
+      
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
-      let urlTitle = await url.replaceAll("%20", " ");
-      let contentName = await items.find(x => x.fields.url == urlTitle);
+      let contentName = await items.find(x => x.fields.url == url);
       
       window.onpopstate = function() {
-        //blah blah blah
-        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+        url? window.location.href = `/${url}` : window.location.href = "/";
        }
       window.addEventListener('locationchange', function(){
         console.log("mudou");
-        contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+        contentName? window.location.href = `/${url}` : window.location.href = "/";
     })
         
       setAll(allContent)
@@ -213,11 +211,14 @@ function Artigo() {
     title: name
   }
   return (
+    <StoreProvider>
+      
     <All>
+      {console.log(all)}
+      {/* {contentName.fields.url} */}
       {all.map((res) => {
-        return (
+        return(
           <>
-            
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
@@ -309,6 +310,7 @@ function Artigo() {
         )
       })}
     </All>
+    </StoreProvider>
   );
 }
 

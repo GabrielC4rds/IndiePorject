@@ -32,19 +32,19 @@ function App() {
   useEffect(() => {
     async function FetchMyApi() {
       let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
-      let urlTitle = await url.replaceAll("%20", " ");
+      // let urlTitle = await url.replaceAll("%20", " ");
       let items = await ConnectContent();
-      let contentName = await items.find(x => x.fields.url == urlTitle);
+      let contentName = await items.find(x => x.fields.url == url);
       
       setContent(await contentName? await contentName.fields.type: null);
       window.onpopstate = function() {
         //blah blah blah
-        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+        url? window.location.href = `/${url}` : window.location.href = "/";
        }
         console.log("contentName", contentName);
       window.addEventListener('locationchange', function(){
         
-        contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+        contentName? window.location.href = `/${url}` : window.location.href = "/";
     })
       // console.log("eu", contentName.fields.type);
       // let contentType = contentName.fields.type;
@@ -63,38 +63,18 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-            {/* <Route path='/:User'>
-              <Podcast />
-            </Route> 
-              <Route path="/:User">
-                <Artigo />
-              </Route> 
-                <Route path="/:User">
-                  <Analise />
-                </Route> 
-                
-                <Route path='/artigospage'>
-                  <ArtigosPage />
-                </Route>
-                <Route path='/podcastpage'>
-                  <PodcastPage />
-                </Route> */}
-                
-              
             {
-              content == "podcast" ?
-                <Route path='/:User'>
+              <>
+                <Route condition={content == "podcast"} path='/:User'>
                   <Podcast />
-                </Route> :
-                content == "artigo" ?
-                  <Route path="/:User">
+                </Route> 
+                  <Route condition={content == "artigo"} path="/:User">
                     <Artigo />
-                  </Route> :
-                  content == "analise" ?
-                    <Route path="/:User">
+                  </Route> 
+                    <Route condition={content == "analise"} path="/:User">
                       <Analise />
-                    </Route> :
-                    <>
+                    </Route> 
+                    
                     <Route path='/artigospage'>
                       <ArtigosPage />
                     </Route>

@@ -219,16 +219,16 @@ function Podcast() {
       setDisquisId(name);
       setDisquisUrl(nameUrl);
       let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
-      let urlTitle = await url.replaceAll("%20", " ");
-      let contentName = await items.find(x => x.fields.url == urlTitle);
+      // let urlTitle = await url.replaceAll("%20", " ");
+      let contentName = await items.find(x => x.fields.url == url);
       console.log(name);
       window.onpopstate = function() {
         //blah blah blah
-        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+        url? window.location.href = `/${url}` : window.location.href = "/";
        }
       window.addEventListener('locationchange', function(){
         console.log("mudou");
-        contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+        contentName? window.location.href = `/${url}` : window.location.href = "/";
     })
         
       setAll(allContent)

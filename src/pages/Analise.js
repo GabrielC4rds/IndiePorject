@@ -184,28 +184,18 @@ function Analise() {
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
-      let setence = items[0].fields.title.toString();
       name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
       let allContent = await items.filter(x => x.fields.url == name);
-      // setence == name ?
-      // setAll(allContent)
-      // :
-      // setAll(allContent);
-      // console.log("all", all);
+      
       setDisquisId(name);
       setDisquisUrl(nameUrl);
       let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
-      let urlTitle = await url.replaceAll("%20", " ");
-      let contentName = await items.find(x => x.fields.url == urlTitle);
+      let contentName = await items.find(x => x.fields.url == url);
       
       window.onpopstate = function() {
-        //blah blah blah
-        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+        url? window.location.href = `/${url}` : window.location.href = "/";
        }
-    //   window.addEventListener('locationchange', function(){
-    //     console.log("mudou");
-    //     contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
-    // })
+    
         
       setAll(allContent)
     }
