@@ -121,7 +121,7 @@ function ArtigosPage() {
       let urlTitle = await url.replaceAll("%20", " ");
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
-      setAll(allContent.reverse());
+      setAll(allContent);
 
        window.onpopstate = function() {
         //blah blah blah
@@ -141,11 +141,11 @@ function ArtigosPage() {
 
           <Item onClick={() => window.location.href=`/${res.fields.url}`}>
             
-              <PostImage style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
+              <PostImage  onClick={() => setUser(res.fields.title)} style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
               <TextDiv>
 
-                <Title>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
-                <DataText>{res.fields.dataSign}</DataText>
+                <Title onClick={() => setUser(res.fields.title)}>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
+                <DataText onClick={() => setUser(res.fields.title)}>{res.fields.dataSign}</DataText>
               </TextDiv>
             
           </Item>
