@@ -209,7 +209,7 @@ function Podcast() {
       let setence = items[0].fields.title.toString();
       nameUrl = await window.location.href.toString();
 
-      name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
+      name = await window.location.href.toString().replace('https://test.d32kwg7sb7g878.amplifyapp.com/','');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -218,7 +218,7 @@ function Podcast() {
       // console.log("all", all);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
+      let url = await window.location.href.toString().replace('https://test.d32kwg7sb7g878.amplifyapp.com/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       console.log(name);
