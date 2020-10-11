@@ -209,7 +209,7 @@ export default function Banner() {
           all.slice(0, 3).map((res) => {
             return (
               
-                <div onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
+                <div onClick={() => window.location.href=`/${res.fields.url}`}>
                   <h3 style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url}) `}}>
                     <InfDiv>
                       <Title>{res.fields.postTitle}</Title>

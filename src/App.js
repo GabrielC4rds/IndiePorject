@@ -23,7 +23,7 @@ function App() {
 
   const [all, setAll] = useState([]);
   const [content, setContent] = useState([]);
-  const User = useContext(StoreContext);
+  const [User, setUser] = useContext(StoreContext);
 
   const Reload = () =>{
     document.location.reload(true);
@@ -42,6 +42,7 @@ function App() {
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
        }
         console.log("contentName", contentName);
+        setUser(contentName);
       window.addEventListener('locationchange', function(){
         
         contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";

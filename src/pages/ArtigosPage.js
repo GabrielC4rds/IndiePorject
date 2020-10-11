@@ -141,11 +141,11 @@ function ArtigosPage() {
 
           <Item onClick={() => window.location.href=`/${res.fields.url}`}>
             
-              <PostImage  onClick={() => setUser(res.fields.title)} style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
+              <PostImage style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
               <TextDiv>
 
-                <Title onClick={() => setUser(res.fields.title)}>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
-                <DataText onClick={() => setUser(res.fields.title)}>{res.fields.dataSign}</DataText>
+                <Title>{res.fields.artigoTitle ? res.fields.artigoTitle : res.fields.postTitle}</Title>
+                <DataText>{res.fields.dataSign}</DataText>
               </TextDiv>
             
           </Item>
