@@ -211,6 +211,8 @@ function Podcast() {
 
       name = await window.location.href.toString().replace('https://test.d32kwg7sb7g878.amplifyapp.com/','');
       let allContent = await items.filter(x => x.fields.url == name);
+      setAll(allContent);
+
       // setence == name ?
       // setAll(allContent)
       // :
@@ -231,7 +233,6 @@ function Podcast() {
         contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
     })
         
-      setAll(allContent)
     }
     FetchMyApi();
   }, []);

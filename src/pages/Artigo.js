@@ -180,18 +180,15 @@ function Artigo() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://test.d32kwg7sb7g878.amplifyapp.com/','');
+      name = await window.location.href.toString().replace('http://localhost:3000/','');
       allContent = await items.filter(x => x.fields.url == name);
-      // setence == name ?
-      // setAll(allContent)
-      // :
-      // setAll(allContent);
-      // console.log("all", all);
+     
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://test.d32kwg7sb7g878.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replaceAll("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
+      setAll(allContent)
       
       window.onpopstate = function() {
         //blah blah blah
@@ -202,7 +199,6 @@ function Artigo() {
         contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
     })
         
-      setAll( await allContent)
     }
     FetchMyApi();
   }, []);
@@ -215,7 +211,7 @@ function Artigo() {
   }
   return (
     <All>
-      {console.log("chegou aqui", allContent)}
+      {console.log("chegou aqui", all)}
       {all.map((res) => {
         return (
           <>
