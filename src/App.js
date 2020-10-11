@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     async function FetchMyApi() {
-      let url = await window.location.href.toString().replace('http://192.168.0.33:3000/', '');
+      let url = await window.location.href.toString().replace('https://test2.d32kwg7sb7g878.amplifyapp.com/', '');
       let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
       let contentName = await items.find(x => x.fields.url == urlTitle);
