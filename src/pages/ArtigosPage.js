@@ -121,7 +121,7 @@ function ArtigosPage() {
       let urlTitle = await url.replaceAll("%20", " ");
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
-      setAll(allContent);
+      setAll(allContent.reverse());
 
        window.onpopstate = function() {
         //blah blah blah
