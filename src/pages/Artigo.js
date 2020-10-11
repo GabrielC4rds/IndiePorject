@@ -214,7 +214,7 @@ function Artigo() {
   }
   return (
     <All>
-      {console.log("chegou aqui", allContent)}
+      {/* {console.log("chegou aqui", allContent)} */}
       {all.map((res) => {
         return (
           <>
