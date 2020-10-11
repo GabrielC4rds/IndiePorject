@@ -201,7 +201,7 @@ function Artigo() {
         contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
     })
         
-      setAll(allContent)
+      setAll( await allContent)
     }
     FetchMyApi();
   }, []);
