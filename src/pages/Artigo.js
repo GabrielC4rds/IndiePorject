@@ -215,7 +215,7 @@ function Artigo() {
   return (
     <All>
       {console.log("chegou aqui", all)}
-      {all.map((res) => {
+      {allContent.map((res) => {
         return (
           <>
             <Header />
