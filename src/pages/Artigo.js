@@ -214,10 +214,10 @@ function Artigo() {
   }
   return (
     <All>
+      {console.log("chegou aqui", all)}
       {all.map((res) => {
         return (
           <>
-            
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
