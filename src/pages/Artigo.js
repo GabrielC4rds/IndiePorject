@@ -179,17 +179,13 @@ function Artigo() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
+      name = await window.location.href.toString().replace('http://192.168.0.33:3000/','');
       let allContent = await items.filter(x => x.fields.url == name);
-      // setence == name ?
-      // setAll(allContent)
-      // :
-      // setAll(allContent);
-      // console.log("all", all);
+      console.log("user", User);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
-      let urlTitle = await url.replaceAll("%20", " ");
+      let url = await window.location.href.toString().replace('http://192.168.0.33:3000/', '');
+      let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
       window.onpopstate = function() {
@@ -217,7 +213,6 @@ function Artigo() {
       {all.map((res) => {
         return (
           <>
-            
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>

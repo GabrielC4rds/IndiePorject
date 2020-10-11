@@ -23,7 +23,7 @@ function App() {
 
   const [all, setAll] = useState([]);
   const [content, setContent] = useState([]);
-  const User = useContext(StoreContext);
+  const [User, setUser] = useContext(StoreContext);
 
   const Reload = () =>{
     document.location.reload(true);
@@ -31,8 +31,8 @@ function App() {
 
   useEffect(() => {
     async function FetchMyApi() {
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
-      let urlTitle = await url.replaceAll("%20", " ");
+      let url = await window.location.href.toString().replace('http://192.168.0.33:3000/', '');
+      let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
@@ -40,8 +40,8 @@ function App() {
       window.onpopstate = function() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
-       }
-        console.log("contentName", contentName);
+      }
+      console.log("contentName", contentName);
       window.addEventListener('locationchange', function(){
         
         contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
@@ -83,15 +83,15 @@ function App() {
               
             {
               content == "podcast" ?
-                <Route path='/:User'>
+                <Route conditional={content == "podcast"} path='/:User'>
                   <Podcast />
                 </Route> :
                 content == "artigo" ?
-                  <Route path="/:User">
+                  <Route conditional={content == "artigo"} path="/:User">
                     <Artigo />
                   </Route> :
                   content == "analise" ?
-                    <Route path="/:User">
+                    <Route conditional={content == "analise"} path="/:User">
                       <Analise />
                     </Route> :
                     <>

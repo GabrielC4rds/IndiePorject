@@ -219,7 +219,7 @@ function Podcast() {
       setDisquisId(name);
       setDisquisUrl(nameUrl);
       let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
-      let urlTitle = await url.replaceAll("%20", " ");
+      let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       console.log(name);
       window.onpopstate = function() {
