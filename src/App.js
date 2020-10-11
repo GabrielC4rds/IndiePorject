@@ -82,19 +82,17 @@ function App() {
                 
               
             {
-              content == "podcast" ?
-                <Route path='/:User'>
+              <>
+                <Route condition={content == "podcast"} path='/:User'>
                   <Podcast />
-                </Route> :
-                content == "artigo" ?
-                  <Route path="/:User">
+                </Route> 
+                  <Route condition={content == "artigo"} path="/:User">
                     <Artigo />
-                  </Route> :
-                  content == "analise" ?
-                    <Route path="/:User">
+                  </Route> 
+                    <Route condition={content == "analise"} path="/:User">
                       <Analise />
-                    </Route> :
-                    <>
+                    </Route> 
+                    
                     <Route path='/artigospage'>
                       <ArtigosPage />
                     </Route>
