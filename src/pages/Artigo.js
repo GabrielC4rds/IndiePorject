@@ -214,8 +214,8 @@ function Artigo() {
   }
   return (
     <All>
-      {console.log("chegou aqui", all)}
-      {allContent.map((res) => {
+      {console.log("chegou aqui", allContent)}
+      {all.map((res) => {
         return (
           <>
             <Header />
