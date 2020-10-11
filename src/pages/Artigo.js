@@ -175,12 +175,13 @@ function Artigo() {
   const [disqusId, setDisquisId] = useState([]);
   let name;
   let nameUrl;
+  let allContent;
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
       name = await window.location.href.toString().replace('https://test.d32kwg7sb7g878.amplifyapp.com/','');
-      let allContent = await items.filter(x => x.fields.url == name);
+      allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
       // :
@@ -215,7 +216,7 @@ function Artigo() {
   }
   return (
     <All>
-      {all.map((res) => {
+      {allContent.map((res) => {
         return (
           <>
             
