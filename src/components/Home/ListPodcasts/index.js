@@ -207,6 +207,9 @@ const TitleItem = styled.p`
   font-weight: bold;
   color: #fff;
   margin: 0;
+  @media only screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const DescItem = styled.p`

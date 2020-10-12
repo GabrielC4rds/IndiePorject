@@ -152,6 +152,10 @@ const Logo = styled.div`
   @keyframes makeBig {
     from { width: 74px;}
     to { width: 80px;}
+
+    @media only screen and (max-width: 768px) {
+      width: auto;
+    }
 }
 `;
 
