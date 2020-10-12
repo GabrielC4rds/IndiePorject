@@ -6,6 +6,8 @@ body {
   /* -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; */
   height: 100%;
+  overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
 
 }
 ul .slick-active div{
@@ -14,7 +16,9 @@ ul .slick-active div{
 
 html {
   scroll-behavior: smooth;
+  overflow: hidden;
 }
+
 
 /* .slick-list{
   transform: translate3d(0, 0, 0) !important;
