@@ -21,7 +21,9 @@ import {
 
 
 const All = styled.div`
-min-height: 100vh; 
+  height: window.innerHeight; 
+  background: black;
+  
 `;
 
 function App() {

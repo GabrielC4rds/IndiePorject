@@ -13,6 +13,8 @@ const All = styled.div`
   flex-direction: column;
   align-items: center;
   background: black;
+  width: window.innerWidth;
+  height: window.innerHeight; 
   `;
   
 function Home() {

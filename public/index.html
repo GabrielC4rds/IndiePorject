@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <link className="iconHead" rel="icon" href="./icon/Logo-Clara2.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
   <meta name="theme-color" content="#000000" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-179644554-1%22%3E"></script>
     <script>
@@ -15,6 +15,8 @@
     
       gtag('config', 'UA-179644554-1');
     </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <!-- <meta property="og:description" content="__OG_DESCRIPTION__" /> -->
   <meta name="description" content="Análises, Podcasts e muito mais sobre o mundo dos jogos Indie"/>
   <!--
@@ -22,6 +24,11 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <script type="text/javascript">
+    window.onLoad = function() {        
+        window.scrollTo(0,1);
+    }
+</script>
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

@@ -20,6 +20,7 @@ const Content = styled.div`
   flex-direction: column;
   background: black;
   width: 100%;
+  min-height: -webkit-fill-available;
   height: 90vh;
   margin-top: 11vh;
   
@@ -31,9 +32,14 @@ const Content = styled.div`
       cursor: pointer;
     }
     @media only screen and (max-width: 768px) {
+      height: 650px;
       background-size: auto 100%;
       background-position: center;
     }
+  }
+  @media only screen and (max-width: 768px) {
+    height: 650px;
+    
   }
 `;
 
@@ -46,6 +52,7 @@ const ArrowLeft = styled.img`
   top: 40%;
   @media only screen and (max-width: 768px) {
     top: 55%;
+    height: 50px;
   }
   
 `;
@@ -59,6 +66,7 @@ const ArrowRight = styled.img`
   z-index: 3;
   @media only screen and (max-width: 768px) {
     top: 55%;
+    height: 50px;
   }
 `;
 
@@ -100,7 +108,7 @@ const InfDiv = styled.div`
     align-items: center;
     border-radius: 0 0 0 0;
     bottom: 15%;
-    height: 40%;
+    height: 280px;
     justify-content: start;
   }
 `;
@@ -182,7 +190,7 @@ export default function Banner() {
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 1000,
-    autoplay: true,
+    autoplay: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
