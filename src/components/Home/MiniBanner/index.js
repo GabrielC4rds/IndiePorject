@@ -40,10 +40,10 @@ const Content = styled.div`
         margin-bottom: 5vh;
         z-index: 4;  
     }
-    @media only screen and (max-width: 768px) {
-        background-attachment: scroll;
-    }
 }
+        @media only screen and (max-width: 768px) {
+            background-attachment: scroll;
+        }
 `;
 
 const BorderTop = styled.div`
