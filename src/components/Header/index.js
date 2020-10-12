@@ -17,7 +17,7 @@ const Content = styled.div`
   flex-direction: column;
   box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.05), 0 3px 20px 0 rgba(0, 0, 0, 0.05), 0 8px 10px -5px rgba(0, 0, 0, 0.0);
   position: fixed;
-  z-index: 5;
+  z-index: 7;
   @media only screen and (max-width: 768px) {
     height: 100px;
   }
@@ -46,7 +46,7 @@ const MenuMobile = styled.div`
     background: black;
     width: 100vw;
     height: 500vh;
-    z-index: 6;
+    z-index: 7;
     position: absolute;
     left: -100vw;
     justify-content: start;
