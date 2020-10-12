@@ -32,14 +32,9 @@ const Content = styled.div`
       cursor: pointer;
     }
     @media only screen and (max-width: 768px) {
-      height: 650px;
       background-size: auto 100%;
       background-position: center;
     }
-  }
-  @media only screen and (max-width: 768px) {
-    height: 650px;
-    
   }
 `;
 
