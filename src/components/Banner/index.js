@@ -20,14 +20,14 @@ const Content = styled.div`
   flex-direction: column;
   background: black;
   width: 100%;
-  min-height: -webkit-fill-available;
-  height: 90vh;
+  height: auto;
   margin-top: 11vh;
   
   h3{
     height: 90vh;
     background-repeat: no-repeat;
     background-size: 100% auto;
+    margin: 0 !important;
     :hover{
       cursor: pointer;
     }
