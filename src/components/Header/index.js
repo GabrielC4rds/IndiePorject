@@ -46,7 +46,7 @@ const MenuMobile = styled.div`
     background: black;
     width: 100vw;
     height: 500vh;
-    z-index: 7;
+    z-index: 8;
     position: absolute;
     left: -100vw;
     justify-content: start;
