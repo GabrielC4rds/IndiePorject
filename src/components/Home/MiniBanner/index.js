@@ -41,7 +41,7 @@ const Content = styled.div`
         z-index: 4;  
     }
     @media only screen and (max-width: 768px) {
-        background-attachment: none;
+        background-attachment: scroll;
     }
 }
 `;
