@@ -18,6 +18,11 @@ import {
   Redirect
 } from "react-router-dom";
 
+
+const All = styled.div`
+min-height: 100vh; 
+`;
+
 function App() {
 
 
@@ -55,7 +60,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <All>
     
       <StoreProvider>
         <Router >
@@ -108,7 +113,7 @@ function App() {
           </Switch>
         </Router>
       </StoreProvider>
-    </>
+    </All>
   );
 }
 
