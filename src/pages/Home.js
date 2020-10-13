@@ -6,6 +6,7 @@ import Banner from '../components/Banner';
 import MiniBanner from '../components/Home/MiniBanner';
 import List from '../components/Home/ListArtigos';
 import ListPodcasts from '../components/Home/ListPodcasts';
+import {Helmet} from "react-helmet";
 
 const All = styled.div`
   font-family: 'Montserrat', sans-serif !important;
@@ -19,6 +20,11 @@ function Home() {
  
   return (
     <All>
+       <Helmet>
+                <meta charSet="utf-8" />
+                <title>My Title</title>
+                <meta name="description" content="Helmet application" />
+            </Helmet>
       <Header/>
       <Banner/>
       <List/>
