@@ -5,6 +5,8 @@ body {
     font-family: 'Montserrat', sans-serif;
   /* -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; */
+  overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
 }
 ul .slick-active div{
   background: #fff;
@@ -12,6 +14,8 @@ ul .slick-active div{
 
 html {
   scroll-behavior: smooth;
+  overflow: hidden;
+  background: black;
 }
 
 /* .slick-list{
