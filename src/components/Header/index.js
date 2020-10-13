@@ -12,7 +12,8 @@ import {
 
 const Content = styled.div`
   display: flex;
-  width: 99%;
+  left: 0;
+  width: 99.1%;
   height: auto;
   flex-direction: column;
   box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.05), 0 3px 20px 0 rgba(0, 0, 0, 0.05), 0 8px 10px -5px rgba(0, 0, 0, 0.0);
