@@ -24,6 +24,7 @@ function Home() {
                 <meta charSet="utf-8" />
                 <title>My Title</title>
                 <meta name="description" content="Helmet application" />
+                <link rel="canonical" href="https://test2.d32kwg7sb7g878.amplifyapp.com/" />
             </Helmet>
       <Header/>
       <Banner/>
