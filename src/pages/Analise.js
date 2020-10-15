@@ -141,7 +141,7 @@ const AllPost = styled.div`
 const ContentImage = styled.div`
   width: 100%;
   height: 60vh;
-  background-size: 100% auto ;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   @media only screen and (max-width: 768px) {
