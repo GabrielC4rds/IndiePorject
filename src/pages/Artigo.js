@@ -137,6 +137,7 @@ const ContentImage = styled.div`
   height: 60vh;
   background-size: 100% auto ;
   background-repeat: no-repeat;
+  background-position: center;
   @media only screen and (max-width: 768px) {
     height: 25vh;
   }
