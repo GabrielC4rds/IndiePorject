@@ -86,8 +86,8 @@ const TopDiv = styled.div`
 `;
 
 const PostImage = styled.div`
-  width: 25vw;
-  height: 25vh;
+  width: 550px;
+  height: 300px;
   cursor: pointer;
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -190,12 +190,13 @@ function ArtigosPage() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
        }
-       if(offset > 2){
-         PreviousBtnStyle.style.display= "block"
-        }else{
-          PreviousBtnStyle.style.display= "none";
+       PreviousBtnStyle.style.display= "none";
+      //  if(offset > 2){
+      //    PreviousBtnStyle.style.display= "block"
+      //   }else{
+      //     PreviousBtnStyle.style.display= "none";
 
-       }
+      //  }
     }
     FetchMyApi();
   }, []);

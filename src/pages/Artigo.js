@@ -134,7 +134,7 @@ const AllPost = styled.div`
 
 const ContentImage = styled.div`
   width: 100%;
-  height: 60vh;
+  height: 600px;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -180,12 +180,12 @@ function Artigo() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://test2.d32kwg7sb7g878.amplifyapp.com/','');
+      name = await window.location.href.toString().replace('http://localhost:3000/','');
       let allContent = await items.filter(x => x.fields.url == name);
       console.log("user", User);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://test2.d32kwg7sb7g878.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
