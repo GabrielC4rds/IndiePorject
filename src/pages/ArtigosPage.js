@@ -147,23 +147,36 @@ function ArtigosPage() {
   const [totalRecords, setTotalRecords] = useState(50);
   const [currentPage,setCurrentPage] = useState(1);
 
-  const handleNext = () => {
+  async function handleNext() {
     if(offset < totalRecords){
+      var PreviousBtnStyle = await document.getElementById('previousBtn');
+      if(offset > 0){
+       PreviousBtnStyle.style.display= "block"
+      }else{
+        PreviousBtnStyle.style.display= "none";
 
+      }
       setCurrentPage(offset);
         setOffset(offset + 2);
     }
   }
 
-  const handlePrev = () => {
+  async function handlePrev(){
     if(offset > 2){
-    setOffset(offset - 2);
-    setCurrentPage(offset -4);
+      var PreviousBtnStyle = await document.getElementById('previousBtn');
+      setOffset(offset - 2);
+      setCurrentPage(offset -4);
+          if(offset > 4){
+           PreviousBtnStyle.style.display= "block"
+          }else{
+            PreviousBtnStyle.style.display= "none";
+    
+          }
     }
   }
-
   useEffect(() => {
     async function FetchMyApi() {
+      var PreviousBtnStyle = await document.getElementById('previousBtn');
       let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
       let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
@@ -176,6 +189,12 @@ function ArtigosPage() {
        window.onpopstate = function() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
+       }
+       if(offset > 2){
+         PreviousBtnStyle.style.display= "block"
+        }else{
+          PreviousBtnStyle.style.display= "none";
+
        }
     }
     FetchMyApi();
@@ -203,7 +222,7 @@ function ArtigosPage() {
         )
       })}
       <button onClick={() => handleNext()}> next</button>
-      <button onClick={() => handlePrev()}> previus</button>
+      <button id="previousBtn" onClick={() => handlePrev()}> previus</button>
       <div style={{ width: "100%", height: "10vh" }} />
       <Footer />
     </All>
