@@ -25,6 +25,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-slick": "0.27.11",
+    "reactjs-hooks-pagination": "^1.0.17",
     "sharethis-reactjs": "^1.6.0",
     "simple-react-comments": "^1.1.0",
     "slick-carousel": "1.8.1",

@@ -16,6 +16,34 @@ import Icon from '@ant-design/icons';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Slider from "react-slick";
+import Pagination from 'reactjs-hooks-pagination';
+
+const pageLimit = 5;
+const initialState = {  
+  user: {},  
+  loading: true,  
+  error: ''  
+}  
+ 
+const Reducer = (state, action) => {  
+  switch (action.type) {  
+      case 'OnSuccess':  
+          return {  
+              loading: false,  
+              user: action.payload,  
+              error: ''  
+          }  
+      case 'OnFailure':  
+          return {  
+              loading: false,  
+              user: {},  
+              error: 'Something went wrong'  
+          }  
+ 
+      default:  
+          return state  
+  }  
+}
 
 const All = styled.div`
   font-family: 'Montserrat', sans-serif !important;
@@ -114,6 +142,25 @@ function ArtigosPage() {
 
   const [all, setAll] = useState([]);
   const [User, setUser] = useContext(StoreContext);
+  // const [state, dispatch] = useReducer(Reducer, initialState);
+  const [offset, setOffset] = useState(0);
+  const [totalRecords, setTotalRecords] = useState(50);
+  const [currentPage,setCurrentPage] = useState(1);
+
+  const handleNext = () => {
+    if(offset < totalRecords){
+
+      setCurrentPage(offset);
+        setOffset(offset + 2);
+    }
+  }
+
+  const handlePrev = () => {
+    if(offset > 2){
+    setOffset(offset - 2);
+    setCurrentPage(offset -4);
+    }
+  }
 
   useEffect(() => {
     async function FetchMyApi() {
@@ -122,7 +169,10 @@ function ArtigosPage() {
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
       setAll(allContent.reverse());
-
+      setCurrentPage(0);
+      setTotalRecords(allContent.length)
+      {console.log(allContent.length)}
+      setOffset(2);
        window.onpopstate = function() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
@@ -133,10 +183,11 @@ function ArtigosPage() {
 
   return (
     <All>
+      
       <Header />
       <TopDiv />
       <TitleDiv>Últimos Artigos</TitleDiv>
-      {all.map((res) => {
+      {all.slice(currentPage, offset).map((res) => {
         return (
 
           <Item onClick={() => window.location.href=`/${res.fields.url}`}>
@@ -151,6 +202,8 @@ function ArtigosPage() {
           </Item>
         )
       })}
+      <button onClick={() => handleNext()}> next</button>
+      <button onClick={() => handlePrev()}> previus</button>
       <div style={{ width: "100%", height: "10vh" }} />
       <Footer />
     </All>
