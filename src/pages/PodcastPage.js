@@ -155,6 +155,7 @@ function PodcastPage() {
         <ItemDiv>
           {all.map((res) => {
             return (
+              <a href={`/${res.fields.url}`}>
               <Item onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
                 
                 <PostImage style={{backgroundImage: `url(${res.fields.bannerImage.fields.file.url})`}}/>
@@ -169,6 +170,7 @@ function PodcastPage() {
                 </TextDiv>
               
               </Item>
+              </a>
             )
           })}
         </ItemDiv>

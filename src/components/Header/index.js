@@ -223,23 +223,31 @@ function Header() {
           <img src="./icon/close.svg"/>
         </CloseButton>
           <div>
-         <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
+          
+            <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
+          
         <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
             <label onClick={() => ScrollDownM()}>CONTATO</label>
           </div>
       </MenuMobile>
     <Content>
       <All>
+        <a href={`/`}>
         <Logo onClick={() => window.location.href = "/"}>
           <img src="./icon/Logo-Clara2.png"></img>
           <label>INDIECAÇÃO</label>
         </Logo>
+         </a>
         <MenuButton onClick={() => handleMove()}>
           <img src="./icon/menu.svg"/>
         </MenuButton>
         <ItemsDiv>
+        <a href={`/artigospage`}> 
           <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
+        </a>
+        <a href={`/podcastpage`}> 
           <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
+        </a>
           <label  onClick={() => ScrollDown()}>CONTATO</label>
           {/* <Search /> */}
         </ItemsDiv>

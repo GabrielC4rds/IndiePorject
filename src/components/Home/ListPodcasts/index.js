@@ -314,6 +314,7 @@ export default function ListPodcasts() {
           {
             all.slice(0, 12).map((res) => {
               return (
+                <a href={`${res.fields.url}`}> 
                   <Item onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
                     
                     <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
@@ -331,6 +332,7 @@ export default function ListPodcasts() {
                   </DescItem>
                     </TextDiv>
                   </Item>
+                  </a>
               )
             })
           }

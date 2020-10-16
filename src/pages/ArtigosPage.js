@@ -238,7 +238,7 @@ function ArtigosPage() {
       <TitleDiv>Últimos Artigos</TitleDiv>
       {all.slice(currentPage, offset).map((res) => {
         return (
-
+          <a href={`/${res.fields.url}`}>
           <Item onClick={() => window.location.href = `/${res.fields.url}`}>
 
             <PostImage onClick={() => setUser(res.fields.title)} style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url})` }}></PostImage>
@@ -249,6 +249,7 @@ function ArtigosPage() {
             </TextDiv>
 
           </Item>
+          </a>
         )
       })}
       <PageButtons>

@@ -166,8 +166,14 @@ function Footer() {
         <div style={{ width: "auto", justifyContent: "space-between", display: "flex", flexDirection: "column" }}>
           <Top>
             <div>
+            <a href={`/artigospage`}>
+
               <label onClick={() => window.location.href = "/artigospage"}>ARTIGOS</label>
+            </a>
+            <a href={`/podcastpage`}>
+
               <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
+            </a>
             </div>
             <div>
               <p>FALE CONOSCO</p>
@@ -182,9 +188,16 @@ function Footer() {
       <RightDiv>
         <label>Nos acompanhe</label>
         <div>
+        <a style={{height: "auto"}} href={`https://www.instagram.com/indiecacaogames/`}>
           <img onClick={() => window.open("https://www.instagram.com/indiecacaogames/")} target="_blank" src="./icon/instagram-brands.svg" />
+        </a> 
+        <a href={`https://open.spotify.com/show/2uWVpGhAqmd40iPPD45Q2S`}>
+
           <img onClick={() => window.open("https://open.spotify.com/show/2uWVpGhAqmd40iPPD45Q2S")} target="_blank" src="./icon/spotify-brands.svg" />
+        </a>
+        <a href={`https://twitter.com/indiecacaogames`}>
           <img onClick={() => window.open("https://twitter.com/indiecacaogames")} target="_blank" src="./icon/twitter-brands.svg" />
+        </a>
         </div>
         <p>
             © 2020 Indiecação Conteúdo Digital LTDA Todos os direitos reservados
