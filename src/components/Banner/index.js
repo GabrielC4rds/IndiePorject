@@ -211,7 +211,7 @@ export default function Banner() {
         {
           all.slice(0, 3).map((res) => {
             return (
-              
+              <a href={`${res.fields.url}`}> 
                 <div onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
                   <h3 style={{ backgroundImage: `url(${res.fields.bannerImage.fields.file.url}) `}}>
                     <InfDiv>
@@ -222,7 +222,7 @@ export default function Banner() {
                     </InfDiv>
                   </h3>
                 </div>
-             
+                </a>
             )
           })
         }
