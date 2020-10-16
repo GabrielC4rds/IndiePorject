@@ -201,7 +201,7 @@ function ArtigosPage() {
     async function FetchMyApi() {
       var PreviousBtnStyle = await document.getElementById('previousBtn');
       var NextBtnStyle = await document.getElementById('nextBtn');
-      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('https://test2.d32kwg7sb7g878.amplifyapp.com/', '');
       let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
