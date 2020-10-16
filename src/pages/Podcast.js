@@ -277,7 +277,7 @@ function Podcast() {
               {res.fields.participantes.map((x) => {
                 return (
 
-                  <a>{x}</a>
+                  <label>{x}</label>
                 )
               })}
               <p>Tópicos:</p>
