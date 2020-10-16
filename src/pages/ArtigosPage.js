@@ -15,8 +15,7 @@ import {
 import Icon from '@ant-design/icons';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Slider from "react-slick";
-import Pagination from 'reactjs-hooks-pagination';
+
 
 const pageLimit = 5;
 const initialState = {
