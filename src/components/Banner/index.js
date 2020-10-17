@@ -185,7 +185,7 @@ export default function Banner() {
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 1000,
-    autoplay: false,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
