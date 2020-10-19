@@ -269,7 +269,8 @@ function Podcast() {
               <LinksDiv>
                 <a href="https://open.spotify.com/show/2uWVpGhAqmd40iPPD45Q2S">Spotify</a>
                 <DividerRight/>
-                <a>Google Podcast</a>
+                <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8zOWJmMDVlOC9wb2RjYXN0L3Jzcw==">
+                  Google Podcast</a>
                 <DividerRight/>
                 <a href="https://anchor.fm/indiecao">Anchor</a>
               </LinksDiv>
