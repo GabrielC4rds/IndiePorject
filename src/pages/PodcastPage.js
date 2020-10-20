@@ -80,6 +80,7 @@ const Item = styled.div`
   @media only screen and (max-width: 768px) {
     font-size: 30px;
     width: 100%;
+    margin-left: 0;
     margin-bottom: 20px;
     height: 70vh;
   }
