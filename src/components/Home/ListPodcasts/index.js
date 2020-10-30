@@ -309,7 +309,7 @@ export default function ListPodcasts() {
         <BorderTitle />
       </TitleDiv>
       <ItemsDiv>
-      {console.log("aqui", sliderCount)}
+      {/* {console.log("aqui", sliderCount)} */}
         <Slider  {...settings}>
           {
             all.slice(0, 12).map((res) => {

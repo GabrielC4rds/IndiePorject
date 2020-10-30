@@ -207,7 +207,7 @@ function ArtigosPage() {
       setAll(allContent.reverse());
       setCurrentPage(0);
       setTotalRecords(allContent.length)
-      { console.log(allContent.length) }
+      // { console.log(allContent.length) }
       setOffset(itemsPerPage);
       window.onpopstate = function () {
         //blah blah blah

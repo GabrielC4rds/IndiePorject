@@ -226,10 +226,10 @@ function Podcast() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
        }
-      window.addEventListener('locationchange', function(){
-        console.log("mudou");
-        contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
-    })
+    //   window.addEventListener('locationchange', function(){
+    //     console.log("mudou");
+    //     contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+    // })
         
       setAll(allContent)
     }

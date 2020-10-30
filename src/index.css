@@ -8,6 +8,7 @@ body {
   height: 100%;
   overflow-y: scroll;
     -webkit-overflow-scrolling:touch;
+    scroll-behavior: smooth;
 
 }
 ul .slick-active div{
@@ -18,6 +19,7 @@ html {
   scroll-behavior: smooth;
   overflow: hidden;
 }
+
 
 
 /* .slick-list{

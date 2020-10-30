@@ -208,12 +208,16 @@ function Header() {
   }
 
   const ScrollDown = () => {
-    window.scrollTo(0,document.body.scrollHeight);
+    // window.focus();
+    document.body.scrollTo(0,document.body.scrollHeight);
+    // window.scrollTo(0,800);
+    console.log("hey man ")
   }
 
   const ScrollDownM = () => {
     revertHandleMove();
     window.scrollTo(0,document.body.scrollHeight);
+    
   }
 
 
@@ -249,7 +253,10 @@ function Header() {
         <a href={`/podcastpage`}> 
           <label onClick={() => window.location.href = "/podcastpage"}>PODCAST</label>
         </a>
+        <a> 
+
           <label  onClick={() => ScrollDown()}>CONTATO</label>
+        </a>
           {/* <Search /> */}
         </ItemsDiv>
         

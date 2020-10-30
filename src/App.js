@@ -49,11 +49,11 @@ function App() {
         //blah blah blah
         urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
        }
-        console.log("contentName", contentName);
-      window.addEventListener('locationchange', function(){
+        // console.log("contentName", contentName);
+    //   window.addEventListener('locationchange', function(){
         
-        contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
-    })
+    //     contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+    // })
       // console.log("eu", contentName.fields.type);
       // let contentType = contentName.fields.type;
       //  setAll(contentType);
