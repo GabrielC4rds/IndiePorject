@@ -273,7 +273,7 @@ export default function ListPodcasts() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          infinite: false,
+          infinite: true,
         }
       }
 

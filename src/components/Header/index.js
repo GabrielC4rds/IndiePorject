@@ -208,15 +208,12 @@ function Header() {
   }
 
   const ScrollDown = () => {
-    // window.focus();
     document.body.scrollTo(0,document.body.scrollHeight);
-    // window.scrollTo(0,800);
-    console.log("hey man ")
   }
 
   const ScrollDownM = () => {
     revertHandleMove();
-    window.scrollTo(0,document.body.scrollHeight);
+    document.body.scrollTo(0,document.body.scrollHeight);
     
   }
 
