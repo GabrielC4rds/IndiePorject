@@ -134,7 +134,7 @@ const AllPost = styled.div`
 
 const ContentImage = styled.div`
   width: 100%;
-  height: 600px;
+  height: 700px;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
