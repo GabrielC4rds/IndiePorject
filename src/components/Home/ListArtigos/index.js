@@ -265,7 +265,7 @@ export default function ListPodcasts() {
         breakpoint: 480,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           infinite: slider.length > 2?true: false,
           
         }
