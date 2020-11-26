@@ -58,11 +58,11 @@ const Item = styled.div`
   font-family: 'Montserrat', sans-serif !important;
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 18vw;
   height: auto;
   margin-bottom: 5vh;
-  margin-left: 2.2vw;
-  margin-right: 2.2vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
   :hover{
   label:nth-child(1){
     animation: colorLabel 0.3s forwards;
@@ -89,7 +89,7 @@ const Item = styled.div`
 
 const PostImage = styled.div`
   width: 100%;
-  height: 40vh;
+  height: 35vh;
   background: gray;
   cursor: pointer;
   background-repeat: no-repeat;
