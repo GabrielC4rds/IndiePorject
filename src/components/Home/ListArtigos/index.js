@@ -300,7 +300,7 @@ export default function ListPodcasts() {
         <Slider {...settings}>
           
           {
-            all.slice(0, 12).map((res) => {
+            all.slice(0, 10).map((res) => {
               return (
                 <a href={`${res.fields.url}`}> 
                   <Item onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
