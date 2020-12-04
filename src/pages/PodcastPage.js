@@ -132,7 +132,7 @@ function PodcastPage() {
 
   useEffect(() => {
     async function FetchMyApi() {
-      let url = await window.location.href.toString().replace('https://master.d3s7w3k063szjv.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
       let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "podcast");

@@ -165,6 +165,96 @@ const DisqusDiv = styled.div`
   margin-top: 5vh;
 `;
 
+const BottomDivider = styled.div`
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div{
+    width: 45%;
+    height: 1.5px;
+  }
+  img{
+    width: 65px;
+    margin-right: 4px;
+  }
+`;
+
+const AuthorDiv = styled.div`
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const PhotoDiv = styled.div`
+  width: 170px;
+  height: 170px;
+  background: pink;
+  border-radius: 50%;
+  border: 5px solid #6D2AA6;
+  background-size: 100%;
+`;
+
+const AuthorTxt = styled.div`
+  width: 85%;
+  height: 100%;
+  margin-left: 30px;
+  line-height: 0 !important;
+`;
+
+const AuthorTop = styled.div`
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 35px;
+`;
+
+const CircleDiv = styled.div`
+  width: 80px !important;
+  height: 80px !important;
+  background: linear-gradient(210deg, #56EE8D 0%, #6D2AA6 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const RevTab = styled.div`
+  width: 23%;
+  height: 100%;
+  background: #6D2AA6;
+  border-radius: 10px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: italic;
+`;
+
+const AuthorTitle = styled.label`
+  font-size: 25px;
+  color: #6D2AA6;
+  font-weight: 700 !important;
+  margin: 0 !important;
+
+`;
+
+const AuthorDesc = styled.label`
+  font-size: 17px !important;
+  margin: 0 !important;
+  color: #000;
+  margin-left: 10px;
+  line-height: 1.5 !important;
+`;
+
 const linkSpotify = 'https://open.spotify.com/embed-podcast/episode/58haVRLxRGvDOMoT7reNGB';
 
 function Artigo() {
@@ -293,6 +383,27 @@ function Artigo() {
               {res.fields.conclusaoImage1?<><ContentImage style={{backgroundImage: `url(${res.fields.conclusaoImage1.fields.file.url})`}}/>
               <SpaceImage/></>
               :null}
+              <BottomDivider>
+                <div style={{background: "#6D2AA6"}}/>
+                 <CircleDiv>
+
+                  <img src="./icon/miniLogo.png"/>
+                 </CircleDiv>
+                <div style={{background: "#56EE8D"}}/>
+              </BottomDivider>
+              <AuthorDiv>
+                <PhotoDiv style={{backgroundImage: " url('./icon/moebus.png')"}}></PhotoDiv>
+                <AuthorTxt>
+                  <AuthorTop>
+
+                    <AuthorTitle>Matheus "MobiusNero" Moebus</AuthorTitle>
+                    <RevTab>Revisão: Natasha Harumi</RevTab>
+                  </AuthorTop>
+                  <AuthorDesc>Estudante de Física e viciado em videogames desde pequeno. Entrou no Indiecação para mostrar 
+                    aos outros sua paixão (e fazê-los se apaixonarem) pelos nossos queridos indies.</AuthorDesc>
+                </AuthorTxt>
+              </AuthorDiv>
+              <Divider/>
               <DisqusDiv>
                 <Disqus.DiscussionEmbed
                   shortname={disqusShortname}
