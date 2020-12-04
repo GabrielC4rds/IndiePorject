@@ -176,26 +176,27 @@ const BottomDivider = styled.div`
     height: 1.5px;
   }
   img{
-    width: 65px;
+    width: 50px;
     margin-right: 4px;
   }
 `;
 
 const AuthorDiv = styled.div`
   width: 100%;
-  height: 20vh;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
 const PhotoDiv = styled.div`
-  width: 170px;
+  width: 180px;
   height: 170px;
   background: pink;
   border-radius: 50%;
   border: 5px solid #6D2AA6;
-  background-size: 100%;
+  background-size: 110%;
+  background-position: center;
 `;
 
 const AuthorTxt = styled.div`
@@ -216,8 +217,8 @@ const AuthorTop = styled.div`
 `;
 
 const CircleDiv = styled.div`
-  width: 80px !important;
-  height: 80px !important;
+  width: 60px !important;
+  height: 60px !important;
   background: linear-gradient(210deg, #56EE8D 0%, #6D2AA6 100%);
   border-radius: 50%;
   display: flex;
@@ -226,7 +227,7 @@ const CircleDiv = styled.div`
 `;
 
 const RevTab = styled.div`
-  width: 23%;
+  width: 15vw;
   height: 100%;
   background: #6D2AA6;
   border-radius: 10px;
@@ -270,12 +271,12 @@ function Artigo() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://test2.d32kwg7sb7g878.amplifyapp.com/','');
+      name = await window.location.href.toString().replace('http://localhost:3000/','');
       let allContent = await items.filter(x => x.fields.url == name);
       console.log("user", User);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://test2.d32kwg7sb7g878.amplifyapp.com/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       
