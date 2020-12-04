@@ -213,7 +213,6 @@ const AuthorTop = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  margin-top: 35px;
 `;
 
 const CircleDiv = styled.div`
