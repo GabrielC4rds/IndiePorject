@@ -314,7 +314,7 @@ function Analise() {
                   )
                 })}
               </ul>
-              <p>Contra</p>
+              <p>Contras</p>
               <ul>
                 {res.fields.contra.map((x) => {
                   return (

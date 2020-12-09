@@ -298,6 +298,27 @@ function Artigo() {
               {res.fields.conclusaoImage1?<><ContentImage style={{backgroundImage: `url(${res.fields.conclusaoImage1.fields.file.url})`}}/>
               <SpaceImage/></>
               :null}
+              {/* <BottomDivider>
+                <div style={{background: "#6D2AA6"}}/>
+                 <CircleDiv>
+
+                  <img src="./icon/miniLogo.png"/>
+                 </CircleDiv>
+                <div style={{background: "#56EE8D"}}/>
+              </BottomDivider>
+              <AuthorDiv>
+                <PhotoDiv style={{backgroundImage: " url('./icon/moebus.png')"}}></PhotoDiv>
+                <AuthorTxt>
+                  <AuthorTop>
+
+                    <AuthorTitle>Matheus "MobiusNero" Moebus</AuthorTitle>
+                    <RevTab>Revisão: Natasha Harumi</RevTab>
+                  </AuthorTop>
+                  <AuthorDesc>Estudante de Física e viciado em videogames desde pequeno. Entrou no Indiecação para mostrar 
+                    aos outros sua paixão (e fazê-los se apaixonarem) pelos nossos queridos indies.</AuthorDesc>
+                </AuthorTxt>
+              </AuthorDiv> */}
+              {/* <Divider/> */}
               <DisqusDiv>
                 <Disqus.DiscussionEmbed
                   shortname={disqusShortname}
