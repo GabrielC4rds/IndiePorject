@@ -146,7 +146,7 @@ const PageButtons = styled.div`
 `;
 
 const PageButton = styled.div`
-  width: 4vw;
+  width: 7vw;
   height: 20px;
   display: flex;
   justify-content: center;
@@ -188,12 +188,14 @@ function ArtigosPage() {
       var PreviousBtnStyle = await document.getElementById('previousBtn');
       setOffset(offset - itemsPerPage);
       setCurrentPage(offset - 2 * itemsPerPage);
+      
       if (offset > 2 * itemsPerPage) {
         PreviousBtnStyle.style.display = "flex"
       } else {
         PreviousBtnStyle.style.display = "none";
-
+        
       }
+      
     }
   }
   useEffect(() => {
@@ -207,7 +209,8 @@ function ArtigosPage() {
       setAll(allContent.reverse());
       setCurrentPage(0);
       setTotalRecords(allContent.length)
-      // { console.log(allContent.length) }
+      
+      
       setOffset(itemsPerPage);
       window.onpopstate = function () {
         //blah blah blah
@@ -215,10 +218,10 @@ function ArtigosPage() {
       }
       PreviousBtnStyle.style.display = "none";
       NextBtnStyle.style.display = "none";
-      if (itemsPerPage < allContent.length) {
-        NextBtnStyle.style.display = "flex";
-      } else {
+      if (itemsPerPage > allContent.length) {
         NextBtnStyle.style.display = "none";
+      } else {
+        NextBtnStyle.style.display = "flex";
       }
       //  if(offset > 2){
       //    PreviousBtnStyle.style.display= "block"
@@ -255,9 +258,9 @@ function ArtigosPage() {
       <PageButtons>
 
         <PageButton id="previousBtn" onClick={() => handlePrev()}> 
-        <label>PREVIOUS</label></PageButton>
+        <label>Mais Recente</label></PageButton>
         <PageButton id="nextBtn" onClick={() => handleNext()}>
-          <label>NEXT</label>
+          <label>Mais Antigo</label>
         </PageButton>
       </PageButtons>
       <div style={{ width: "100%", height: "10vh" }} />
