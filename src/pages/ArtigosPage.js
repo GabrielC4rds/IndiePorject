@@ -157,6 +157,10 @@ const PageButton = styled.div`
     font-size: 15px;
     cursor: pointer;
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 30vw;
+  }
 `;
 
 function ArtigosPage() {
