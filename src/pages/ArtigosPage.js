@@ -57,6 +57,7 @@ const Item = styled.div`
   display: flex;
   height: auto;
   width: auto;
+  max-width: 90vw;
   margin-bottom: 5vh;
   margin-left: 5vw;
   cursor: normal;
