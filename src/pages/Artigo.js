@@ -195,7 +195,7 @@ const AuthorDiv = styled.div`
 `;
 
 const PhotoDiv = styled.div`
-  width: 180px;
+  width: 190px;
   height: 180px;
   background: pink;
   border-radius: 50%;
