@@ -195,9 +195,10 @@ const AuthorDiv = styled.div`
 `;
 
 const PhotoDiv = styled.div`
-  width: 190px;
-  height: 180px;
+  width: 175px;
+  height: 175px;
   background: pink;
+  background-repeat: no-repeat;
   border-radius: 50%;
   border: 5px solid #6D2AA6;
   background-size: 110%;
