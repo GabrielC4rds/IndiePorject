@@ -472,7 +472,7 @@ function Analise() {
                   <AuthorTop>
 
                     <AuthorTitle>{res.fields.author.fields.name}</AuthorTitle>
-                    <RevTab>{res.fields.reviewer}</RevTab>
+                    <RevTab>Revisão: {res.fields.reviewer}</RevTab>
                   </AuthorTop>
                   <AuthorDesc>{res.fields.author.fields.desc}</AuthorDesc>
                 </AuthorTxt>
