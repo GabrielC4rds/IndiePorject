@@ -90,7 +90,6 @@ const Item = styled.div`
 const PostImage = styled.div`
   width: 100%;
   height: 35vh;
-  background: gray;
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center center;
@@ -159,7 +158,7 @@ function PodcastPage() {
               <a href={`/${res.fields.url}`}>
               <Item onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
                 
-                <PostImage style={{backgroundImage: `url(${res.fields.bannerImage.fields.file.url})`}}/>
+                <PostImage style={{backgroundImage: `url(${res.fields.coverArt.fields.file.url})`}}/>
                 <TextDiv>
                   <Title>
                     {res.fields.podcastTag} {res.fields.podcastNumber} - {res.fields.podcastTitle} 
