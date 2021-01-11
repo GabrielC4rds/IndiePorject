@@ -194,6 +194,12 @@ const DownInfs = styled.div`
   }
 `;
 
+const TopicosTxt = styled.p`
+  color: none;
+  font-weight: 500 !important;
+
+`;
+
 const linkSpotify = 'https://open.spotify.com/embed-podcast/episode/58haVRLxRGvDOMoT7reNGB';
 
 function Podcast() {
@@ -313,7 +319,7 @@ function Podcast() {
                 {res.fields.topicos.map((x) => {
                   return (
 
-                    <h3>{x}</h3>
+                    <TopicosTxt style={{color: "none !important"}}>{x}</TopicosTxt>
                   )
                 })}
                 <DownInfs>
