@@ -334,7 +334,7 @@ function Artigo() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('http://localhost:3000/', '');
+      name = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -343,7 +343,7 @@ function Artigo() {
       console.log("all", allContent);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
+      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
       let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
 
