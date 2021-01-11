@@ -318,11 +318,14 @@ function Artigo() {
       setTheme('dark');
       eyeWhite.style.display = "block"; 
       eyeBlack.style.display = "none";
+      
     } else {
       setTheme('light');
       eyeWhite.style.display = "none"; 
       eyeBlack.style.display = "block";
+      
     }
+    
   }
 
   const [all, setAll] = useState([]);
@@ -365,8 +368,9 @@ function Artigo() {
   const disqusConfig = {
     url: disqusUrl,
     identifier: disqusId,
-    title: name
+    title: name,
   }
+  
   return (
     <All>
       {all.map((res) => {
@@ -486,6 +490,7 @@ function Artigo() {
                   <Disqus.DiscussionEmbed
                     shortname={disqusShortname}
                     config={disqusConfig}
+                    theme="auto"
                   />
                 </DisqusDiv>
               </AllPost>

@@ -509,6 +509,7 @@ function Analise() {
                   <Disqus.DiscussionEmbed
                     shortname={disqusShortname}
                     config={disqusConfig}
+                    theme="auto"
                   />
                 </DisqusDiv>
               </AllPost>

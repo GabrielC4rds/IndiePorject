@@ -10,6 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../theme';
 import { GlobalStyles } from '../global';
 
+
 const All = styled.div`
   display: flex;
   flex-direction: column;
@@ -205,11 +206,11 @@ const linkSpotify = 'https://open.spotify.com/embed-podcast/episode/58haVRLxRGvD
 function Podcast() {
 
   const [User, setUser] = useContext(StoreContext)
-
   const [theme, setTheme] = useState('light');
   const toggleTheme = () => {
-    let eyeWhite =  document.getElementById("eyeWhite")
-    let eyeBlack =  document.getElementById("eyeBlack")
+    const pageUrl = document.location.href;
+    let eyeWhite =  document.getElementById("eyeWhite");
+    let eyeBlack =  document.getElementById("eyeBlack");
     if (theme === 'light') {
       setTheme('dark');
       eyeWhite.style.display = "block"; 
@@ -219,6 +220,7 @@ function Podcast() {
       eyeWhite.style.display = "none"; 
       eyeBlack.style.display = "block";
     }
+   
   }
 
   const [all, setAll] = useState([]);
@@ -332,6 +334,7 @@ function Podcast() {
                   <Disqus.DiscussionEmbed
                     shortname={disqusShortname}
                     config={disqusConfig}
+                    theme="auto"
                   />
                 </DisqusDiv>
               </AllPost>
