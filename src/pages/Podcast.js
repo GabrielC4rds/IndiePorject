@@ -6,11 +6,15 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../theme';
+import { GlobalStyles } from '../global';
+
 const All = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  // background: #fff;
   height: auto;
   font-family: 'Montserrat', sans-serif !important;
 `;
@@ -87,10 +91,10 @@ const AllPost = styled.div`
   flex-direction: column;
   width: 60%;
   line-height: 35px;
-  margin: 50px 0;
+  marginBottom: 50px;
   height: auto;
-  background: #fff;
-  color: #000;
+  // background: #fff;
+  // color: #000;
   p{
     margin-top: 5vh;
     margin-bottom: 2vh;
@@ -196,20 +200,35 @@ function Podcast() {
 
   const [User, setUser] = useContext(StoreContext)
 
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    let eyeWhite =  document.getElementById("eyeWhite")
+    let eyeBlack =  document.getElementById("eyeBlack")
+    if (theme === 'light') {
+      setTheme('dark');
+      eyeWhite.style.display = "block"; 
+      eyeBlack.style.display = "none";
+    } else {
+      setTheme('light');
+      eyeWhite.style.display = "none"; 
+      eyeBlack.style.display = "block";
+    }
+  }
+
   const [all, setAll] = useState([]);
   const [disqusUrl, setDisquisUrl] = useState([]);
   const [disqusId, setDisquisId] = useState([]);
   let name;
   let nameUrl;
 
-  
+
   useEffect(() => {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
       nameUrl = await window.location.href.toString();
 
-      name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
+      name = await window.location.href.toString().replace('http://localhost:3000/', '');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -218,19 +237,19 @@ function Podcast() {
       // console.log("all", all);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
       console.log(name);
-      window.onpopstate = function() {
+      window.onpopstate = function () {
         //blah blah blah
-        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
-       }
-    //   window.addEventListener('locationchange', function(){
-    //     console.log("mudou");
-    //     contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
-    // })
-        
+        urlTitle ? window.location.href = `/${urlTitle}` : window.location.href = "/";
+      }
+      //   window.addEventListener('locationchange', function(){
+      //     console.log("mudou");
+      //     contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+      // })
+
       setAll(allContent)
     }
     FetchMyApi();
@@ -247,7 +266,7 @@ function Podcast() {
       {all.map((res) => {
         return (
           <>
-           
+
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
@@ -258,49 +277,59 @@ function Podcast() {
                 </TitleDiv>
               </BackgroundDiv>
             </Banner>
-            <AllPost>
-              <label dangerouslySetInnerHTML={{ __html: res.fields.descriptionText }}>
-              </label>
-              <IframeDiv>
-                <label>Preview</label>
-                <iframe src={res.fields.podacstLink} width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-              </IframeDiv>
-              <p>Nos acompanhe:</p>
-              <LinksDiv>
-                <a href="https://open.spotify.com/show/2uWVpGhAqmd40iPPD45Q2S">Spotify</a>
-                <DividerRight/>
-                <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8zOWJmMDVlOC9wb2RjYXN0L3Jzcw==">
-                  Google Podcast</a>
-                <DividerRight/>
-                <a href="https://anchor.fm/indiecao">Anchor</a>
-              </LinksDiv>
-              <p>Participantes:</p>
-              {res.fields.participantes.map((x) => {
-                return (
+            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+              <>
+                <GlobalStyles />
+                <button style={{cursor: "pointer",margin:"20px 0 ", background: "none", border:"none", outline:"none"}} onClick={toggleTheme}>
+                
+                  <img id="eyeBlack" style={{display: "block",width: "40px", height: "40px"}} src={"./icon/eyeBlack.svg"}/>
+                  <img id="eyeWhite" style={{display: "none",width: "40px", height: "40px"}} src={"./icon/eyeWhite.svg"}/>
+                </button>
+              </>
+              <AllPost>
+                <label dangerouslySetInnerHTML={{ __html: res.fields.descriptionText }}>
+                </label>
+                <IframeDiv>
+                  <label>Preview</label>
+                  <iframe src={res.fields.podacstLink} width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </IframeDiv>
+                <p>Nos acompanhe:</p>
+                <LinksDiv>
+                  <a href="https://open.spotify.com/show/2uWVpGhAqmd40iPPD45Q2S">Spotify</a>
+                  <DividerRight />
+                  <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8zOWJmMDVlOC9wb2RjYXN0L3Jzcw==">
+                    Google Podcast</a>
+                  <DividerRight />
+                  <a href="https://anchor.fm/indiecao">Anchor</a>
+                </LinksDiv>
+                <p>Participantes:</p>
+                {res.fields.participantes.map((x) => {
+                  return (
 
-                  <label>{x}</label>
-                )
-              })}
-              <p>Tópicos:</p>
-              {res.fields.topicos.map((x) => {
-                return (
+                    <label>{x}</label>
+                  )
+                })}
+                <p>Tópicos:</p>
+                {res.fields.topicos.map((x) => {
+                  return (
 
-                  <h3>{x}</h3>
-                )
-              })}
-              <DownInfs>
-                <p>Tem sugestões ou algo de
-                interessante para compartilhar?
+                    <h3>{x}</h3>
+                  )
+                })}
+                <DownInfs>
+                  <p>Tem sugestões ou algo de
+                  interessante para compartilhar?
             Envie um e-mail para: <span>contato@indiecacao.com.br</span>
-                </p>
-              </DownInfs>
-              <DisqusDiv>
-                <Disqus.DiscussionEmbed
-                  shortname={disqusShortname}
-                  config={disqusConfig}
-                />
-              </DisqusDiv>
-            </AllPost>
+                  </p>
+                </DownInfs>
+                <DisqusDiv>
+                  <Disqus.DiscussionEmbed
+                    shortname={disqusShortname}
+                    config={disqusConfig}
+                  />
+                </DisqusDiv>
+              </AllPost>
+            </ThemeProvider>
             <Footer />
           </>
         )

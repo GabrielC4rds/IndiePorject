@@ -22,7 +22,7 @@ import {
 
 const All = styled.div`
   height: window.innerHeight; 
-  background: black;
+  // background: black;
   
 `;
 
@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     async function FetchMyApi() {
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
       let contentName = await items.find(x => x.fields.url == urlTitle);

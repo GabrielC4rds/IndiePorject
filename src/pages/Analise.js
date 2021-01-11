@@ -6,12 +6,15 @@ import { DiscussionEmbed } from 'disqus-react';
 import Disqus from "disqus-react";
 import { StoreContext } from '../Store'
 import { ConnectContent } from '../ConfigContent';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from '../theme';
+import { GlobalStyles } from '../global';
 
 const All = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  // background: #fff;
   height: auto;
   font-family: 'Montserrat', sans-serif !important;
 `;
@@ -89,10 +92,10 @@ const AllPost = styled.div`
   flex-direction: column;
   width: 60%;
   line-height: 35px;
-  margin: 50px 0;
+  marginBottom: 50px;
   height: auto;
-  background: #fff;
-  color: #000;
+  // background: #fff;
+  // color: #000;
   p{
     margin-top: 2vh;
     margin-bottom: 4vh;
@@ -113,7 +116,7 @@ const AllPost = styled.div`
     font-weight: 500;
   }
   li{
-    color: #000;
+    // color: #000;
     font-size: 22px;
     font-weight: 500;
   }
@@ -300,7 +303,7 @@ const AuthorTitle = styled.label`
 const AuthorDesc = styled.label`
   font-size: 17px !important;
   margin: 0 !important;
-  color: #000;
+  // color: #000;
   margin-left: 10px;
   line-height: 1.5 !important;
   @media only screen and (max-width: 768px) {
@@ -312,6 +315,21 @@ function Analise() {
 
   const [User, setUser] = useContext(StoreContext)
 
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    let eyeWhite =  document.getElementById("eyeWhite")
+    let eyeBlack =  document.getElementById("eyeBlack")
+    if (theme === 'light') {
+      setTheme('dark');
+      eyeWhite.style.display = "block"; 
+      eyeBlack.style.display = "none";
+    } else {
+      setTheme('light');
+      eyeWhite.style.display = "none"; 
+      eyeBlack.style.display = "block";
+    }
+  }
+
   const [all, setAll] = useState([]);
   const [disqusUrl, setDisquisUrl] = useState([]);
   const [disqusId, setDisquisId] = useState([]);
@@ -321,7 +339,7 @@ function Analise() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://indiecacao.com.br/','');
+      name = await window.location.href.toString().replace('http://localhost:3000/', '');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
@@ -330,19 +348,19 @@ function Analise() {
       // console.log("all", all);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
-      
-      window.onpopstate = function() {
+
+      window.onpopstate = function () {
         //blah blah blah
-        urlTitle? window.location.href = `/${urlTitle}` : window.location.href = "/";
-       }
-    //   window.addEventListener('locationchange', function(){
-    //     console.log("mudou");
-    //     contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
-    // })
-        
+        urlTitle ? window.location.href = `/${urlTitle}` : window.location.href = "/";
+      }
+      //   window.addEventListener('locationchange', function(){
+      //     console.log("mudou");
+      //     contentName? window.location.href = `/${urlTitle}` : window.location.href = "/";
+      // })
+
       setAll(allContent)
     }
     FetchMyApi();
@@ -370,121 +388,131 @@ function Analise() {
                 </TitleDiv>
               </BackgroundDiv>
             </Banner>
-            <AllPost>
-              <label dangerouslySetInnerHTML={{ __html: res.fields.description }}>
-              
-              </label>
-              <Divider />
-              <p>{res.fields.intTitle}</p>
-              <label dangerouslySetInnerHTML={{ __html: res.fields.intText1 }}></label>
-              <Space />
-              {res.fields.intText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText2 }}></label>
+            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+              <>
+                <GlobalStyles />
+                <button style={{cursor: "pointer", margin:"20px 0 ", background: "none", border:"none", outline:"none"}} onClick={toggleTheme}>
+                
+                  <img id="eyeBlack" style={{display: "block",width: "40px", height: "40px"}} src={"./icon/eyeBlack.svg"}/>
+                  <img id="eyeWhite" style={{display: "none",width: "40px", height: "40px"}} src={"./icon/eyeWhite.svg"}/>
+                </button>
+              </>
+              <AllPost>
+                <label dangerouslySetInnerHTML={{ __html: res.fields.description }}>
+
+                </label>
+                <Divider />
+                <p>{res.fields.intTitle}</p>
+                <label dangerouslySetInnerHTML={{ __html: res.fields.intText1 }}></label>
+                <Space />
+                {res.fields.intText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText2 }}></label>
                 </>
-                : null}
+                  : null}
                 <SpaceImage />
-              <ContentImage style={{ backgroundImage: `url(${res.fields.intImage2.fields.file.url})` }} />
-              <SpaceImage />
-              {res.fields.intText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText3 }}></label>
+                <ContentImage style={{ backgroundImage: `url(${res.fields.intImage2.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.intText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText3 }}></label>
                 </>
-                : null}
+                  : null}
                 <SpaceImage />
-              {res.fields.intImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.intImage3.fields.file.url})` }} />
-                <SpaceImage /></>
-                : null}
-              {res.fields.intText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText4 }}></label>
-                <Space /></>
-                : null}
-              <Divider />
-              <p>{res.fields.desTitle}</p>
-              {res.fields.desText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText1 }}></label>
-                <Space /></>
-                : null}
-              {res.fields.desText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText2 }}></label>
-                <SpaceImage /></>
-                : null}
-              {res.fields.desImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage1.fields.file.url})` }} />
-                <SpaceImage /></>
-                : null}
-              {res.fields.desText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText3 }}></label>
-                <Space /></>
-                : null}
-              {res.fields.desText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText4 }}></label>
-                <SpaceImage /></>
-                : null}
-              {res.fields.desImage2 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage2.fields.file.url})` }} />
-                <SpaceImage /></>
-                : null}
-              {res.fields.desText5 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText5 }}></label>
-                <Space /></>
-                : null}
-              {res.fields.desText6 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText6 }}></label>
-                <SpaceImage /></>
-                : null}
-              {res.fields.desImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage3.fields.file.url})` }} />
-                <SpaceImage /></>
-                : null}
-              {res.fields.desText7 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText7 }}></label>
-                <Space /></>
-                : null}
-              <Divider />
-              <p>{res.fields.concTitle}</p>
-              {res.fields.concText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText1 }}></label>
-                <Space /></>
-                : null}
-              {res.fields.concText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText2 }}></label>
-                <Space /></>
-                : null}
-              {res.fields.concText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText3 }}></label>
-                <SpaceImage /></>
-                : null}
-              {res.fields.concImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.concImage1.fields.file.url})` }} />
-                <SpaceImage /></>
-                : null}
-              <p>Prós</p>
-              <ul>
-                {res.fields.pros.map((x) => {
-                  return (
+                {res.fields.intImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.intImage3.fields.file.url})` }} />
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.intText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.intText4 }}></label>
+                  <Space /></>
+                  : null}
+                <Divider />
+                <p>{res.fields.desTitle}</p>
+                {res.fields.desText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText1 }}></label>
+                  <Space /></>
+                  : null}
+                {res.fields.desText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText2 }}></label>
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.desImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage1.fields.file.url})` }} />
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.desText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText3 }}></label>
+                  <Space /></>
+                  : null}
+                {res.fields.desText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText4 }}></label>
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.desImage2 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage2.fields.file.url})` }} />
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.desText5 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText5 }}></label>
+                  <Space /></>
+                  : null}
+                {res.fields.desText6 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText6 }}></label>
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.desImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desImage3.fields.file.url})` }} />
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.desText7 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desText7 }}></label>
+                  <Space /></>
+                  : null}
+                <Divider />
+                <p>{res.fields.concTitle}</p>
+                {res.fields.concText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText1 }}></label>
+                  <Space /></>
+                  : null}
+                {res.fields.concText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText2 }}></label>
+                  <Space /></>
+                  : null}
+                {res.fields.concText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.concText3 }}></label>
+                  <SpaceImage /></>
+                  : null}
+                {res.fields.concImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.concImage1.fields.file.url})` }} />
+                  <SpaceImage /></>
+                  : null}
+                <p>Prós</p>
+                <ul>
+                  {res.fields.pros.map((x) => {
+                    return (
 
-                    <li>{x}</li>
-                  )
-                })}
-              </ul>
-              <p>Contras</p>
-              <ul>
-                {res.fields.contra.map((x) => {
-                  return (
+                      <li>{x}</li>
+                    )
+                  })}
+                </ul>
+                <p>Contras</p>
+                <ul>
+                  {res.fields.contra.map((x) => {
+                    return (
 
-                    <li>{x}</li>
-                  )
-                })}
-              </ul>
-              <BottomDivider>
-                <div style={{background: "#6D2AA6"}}/>
-                 <CircleDiv>
+                      <li>{x}</li>
+                    )
+                  })}
+                </ul>
+                <BottomDivider>
+                  <div style={{ background: "#6D2AA6" }} />
+                  <CircleDiv>
 
-                  <img src="./icon/miniLogo.png"/>
-                 </CircleDiv>
-                <div style={{background: "#56EE8D"}}/>
-              </BottomDivider>
-              <AuthorDiv>
-                <PhotoDiv style={{backgroundImage: ` url(${res.fields.author.fields.image.fields.file.url})`}}></PhotoDiv> 
-                <AuthorTxt>
-                  <AuthorTop>
+                    <img src="./icon/miniLogo.png" />
+                  </CircleDiv>
+                  <div style={{ background: "#56EE8D" }} />
+                </BottomDivider>
+                <AuthorDiv>
+                  <PhotoDiv style={{ backgroundImage: ` url(${res.fields.author.fields.image.fields.file.url})` }}></PhotoDiv>
+                  <AuthorTxt>
+                    <AuthorTop>
 
-                    <AuthorTitle>{res.fields.author.fields.name}</AuthorTitle>
-                    <RevTab>Revisão: <span>{res.fields.reviewer}</span></RevTab>
-                  </AuthorTop>
-                  <AuthorDesc>{res.fields.author.fields.desc}</AuthorDesc>
-                </AuthorTxt>
-              </AuthorDiv> 
-              <Divider/>
-              <DisqusDiv>
-                <Disqus.DiscussionEmbed
-                  shortname={disqusShortname}
-                  config={disqusConfig}
-                />
-              </DisqusDiv>
-            </AllPost>
+                      <AuthorTitle>{res.fields.author.fields.name}</AuthorTitle>
+                      <RevTab>Revisão: <span>{res.fields.reviewer}</span></RevTab>
+                    </AuthorTop>
+                    <AuthorDesc>{res.fields.author.fields.desc}</AuthorDesc>
+                  </AuthorTxt>
+                </AuthorDiv>
+                <Divider />
+                <DisqusDiv>
+                  <Disqus.DiscussionEmbed
+                    shortname={disqusShortname}
+                    config={disqusConfig}
+                  />
+                </DisqusDiv>
+              </AllPost>
+            </ThemeProvider>
             <Footer />
           </>
         )
