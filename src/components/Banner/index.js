@@ -196,7 +196,7 @@ export default function Banner() {
     async function FetchMyApi() {
 
       let items = await ConnectContent();
-      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "podcast");
+      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "top");
       setAll(allContent.reverse());
     }
     FetchMyApi();
