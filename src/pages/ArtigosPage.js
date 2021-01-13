@@ -201,10 +201,18 @@ function ArtigosPage() {
     async function FetchMyApi() {
       var PreviousBtnStyle = await document.getElementById('previousBtn');
       var NextBtnStyle = await document.getElementById('nextBtn');
+<<<<<<< Updated upstream
       let url = await window.location.href.toString().replace('https://test2.d32kwg7sb7g878.amplifyapp.com/', '');
       let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
       let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
+=======
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
+      let urlTitle = await url.replace("%20", " ");
+      let items = await ConnectContent();
+      // let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
+      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "top");
+>>>>>>> Stashed changes
       setAll(allContent.reverse());
       setCurrentPage(0);
       setTotalRecords(allContent.length)
@@ -233,6 +241,7 @@ function ArtigosPage() {
 
   return (
     <All>
+      
 
       <Header />
       <TopDiv />

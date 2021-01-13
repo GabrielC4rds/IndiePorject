@@ -5,6 +5,7 @@ import Podcast from './pages/Podcast';
 import Artigo from './pages/Artigo';
 import Analise from './pages/Analise';
 import PodcastPage from './pages/PodcastPage';
+import Top from './pages/Top'
 import { StoreProvider } from './Store';
 import ArtigosPage from './pages/ArtigosPage';
 import { UserContext, StoreContext } from './Store';
@@ -94,6 +95,10 @@ function App() {
                     <Route conditional={content == "analise"} path="/:User">
                       <Analise />
                     </Route> :
+                    content == "top" ?
+                    <Route path="/:User">
+                      <Top />
+                    </Route> :
                     <>
                     <Route path='/artigospage'>
                       <ArtigosPage />
@@ -101,6 +106,7 @@ function App() {
                     <Route path='/podcastpage'>
                       <PodcastPage />
                     </Route>
+                    
                     </>
             }
                     
