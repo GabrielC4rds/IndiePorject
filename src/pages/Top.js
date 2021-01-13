@@ -166,7 +166,7 @@ const Space = styled.div`
 
 const SpaceImage = styled.div`
   width: 100%;
-  height: 8vh;
+  height: 2.5vh;
   
 `;
 
