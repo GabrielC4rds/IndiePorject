@@ -2,16 +2,6 @@ import React, { Component, useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { ConnectContent } from '../../../ConfigContent';
 import { UserContext, StoreContext } from '../../../Store';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-import Icon from '@ant-design/icons';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Slider from "react-slick";
 
@@ -282,7 +272,7 @@ export default function ListPodcasts() {
     async function FetchMyApi() {
 
       let items = await ConnectContent();
-      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
+      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "top");
       setAll(allContent.reverse());
       arrayNum = await all.length;
     }
@@ -307,7 +297,7 @@ export default function ListPodcasts() {
                     
                     <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }} >
                       <BannerTop>
-                        <label>{res.fields.type == "artigo" ? res.fields.type : "análise"}</label>
+                        <label>{res.fields.type == "artigo" ? res.fields.type : "análise" ? res.fields.type : "top"}</label>
                       </BannerTop>
                     </ItemTop>
                     <TextDiv>

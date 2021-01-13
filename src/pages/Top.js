@@ -10,7 +10,6 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../theme';
 import { GlobalStyles } from '../global';
 
-
 const All = styled.div`
   display: flex;
   flex-direction: column;
@@ -67,6 +66,9 @@ const TitleDiv = styled.div`
     font-weight: regular;
     color: #fff;
   }
+  @media screen and (min-width: 600px) and (max-width: 1440px) {
+    width: 60%;
+  }
   @media only screen and (max-width: 768px) {
     width: 90%;
     margin-top: 10vh;
@@ -103,8 +105,6 @@ const AllPost = styled.div`
   label{
     font-weight: 500;
     font-size: 22px;
-    line-height: 30px;
-    margin-bottom: 20px;
   }
   a{
     color: #316CE1;
@@ -112,6 +112,11 @@ const AllPost = styled.div`
     font-weight: 500;
   }
   h3{
+    font-size: 22px;
+    font-weight: 500;
+  }
+  li{
+    // color: #000;
     font-size: 22px;
     font-weight: 500;
   }
@@ -165,9 +170,11 @@ const SpaceImage = styled.div`
   
 `;
 
+
 const DisqusDiv = styled.div`
   margin-top: 5vh;
 `;
+
 const BottomDivider = styled.div`
   width: 100%;
   height: 10vh;
@@ -202,7 +209,6 @@ const PhotoDiv = styled.div`
   width: 185px;
   height: 175px;
   background: pink;
-  background-repeat: no-repeat;
   border-radius: 50%;
   border: 5px solid #6D2AA6;
   background-size: 110%;
@@ -223,6 +229,7 @@ const AuthorTxt = styled.div`
     flex-direction: column;
     margin: 0;
     text-align: center;
+    width: 95%;
   }
 `;
 
@@ -304,11 +311,9 @@ const AuthorDesc = styled.label`
     
   }
 `;
-
-function Artigo() {
+function Top() {
 
   const [User, setUser] = useContext(StoreContext)
-
 
   const [theme, setTheme] = useState('light');
   const toggleTheme = () => {
@@ -318,14 +323,11 @@ function Artigo() {
       setTheme('dark');
       eyeWhite.style.display = "block"; 
       eyeBlack.style.display = "none";
-      
     } else {
       setTheme('light');
       eyeWhite.style.display = "none"; 
       eyeBlack.style.display = "block";
-      
     }
-    
   }
 
   const [all, setAll] = useState([]);
@@ -337,16 +339,16 @@ function Artigo() {
     async function FetchMyApi() {
       let items = await ConnectContent();
       let setence = items[0].fields.title.toString();
-      name = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
+      name = await window.location.href.toString().replace('http://localhost:3000/', '');
       let allContent = await items.filter(x => x.fields.url == name);
       // setence == name ?
       // setAll(allContent)
       // :
       // setAll(allContent);
-      console.log("all", allContent);
+      // console.log("all", all);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replace("%20", " ");
       let contentName = await items.find(x => x.fields.url == urlTitle);
 
@@ -368,15 +370,13 @@ function Artigo() {
   const disqusConfig = {
     url: disqusUrl,
     identifier: disqusId,
-    title: name,
+    title: name
   }
-  
   return (
     <All>
       {all.map((res) => {
         return (
           <>
-
             <Header />
             <Banner style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
               <BackgroundDiv>
@@ -387,7 +387,7 @@ function Artigo() {
                 </TitleDiv>
               </BackgroundDiv>
             </Banner>
-            <ThemeProvider  theme={theme === 'light' ? lightTheme : darkTheme}>
+            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
               <>
                 <GlobalStyles />
                 <button style={{cursor: "pointer", margin:"20px 0 ", background: "none", border:"none", outline:"none"}} onClick={toggleTheme}>
@@ -395,96 +395,9 @@ function Artigo() {
                   <img id="eyeBlack" style={{display: "block",width: "40px", height: "40px"}} src={"./icon/eyeBlack.svg"}/>
                   <img id="eyeWhite" style={{display: "none",width: "40px", height: "40px"}} src={"./icon/eyeWhite.svg"}/>
                 </button>
-                
               </>
               <AllPost>
-                <label>
-                  {res.fields.description}
-                </label>
-                <Divider />
-                <p>{res.fields.intTitle}</p>
-                <label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText1 }} ></label>
-                <Space />
-                {res.fields.introducaoText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText2 }}></label>
-                  <SpaceImage /></>
-                  : null}
-                <ContentImage style={{ backgroundImage: `url(${res.fields.introducaoImage1.fields.file.url})` }} />
-                <SpaceImage />
-                {res.fields.introducaoText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText3 }}></label>
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.introducaoImage2 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.introducaoImage2.fields.file.url})` }} />
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.introducaoText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.introducaoText4 }}></label>
-                  <Space /></>
-                  : null}
-                <Divider />
-                <p>{res.fields.desTitle}</p>
-                {res.fields.desenvolvimentoText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText1 }}></label>
-                  <Space /></>
-                  : null}
-                {res.fields.desenvolvimentoText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText2 }}></label>
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.desenvolvimentoImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desenvolvimentoImage1.fields.file.url})` }} />
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.desenvolvimentoText3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText3 }}></label>
-                  <Space /></>
-                  : null}
-                {res.fields.desenvolvimentoText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText4 }}></label>
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.desenvolvimentoImage2 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desenvolvimentoImage2.fields.file.url})` }} />
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.desenvolvimentoText5 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText5 }}></label>
-                  <Space /></>
-                  : null}
-                {res.fields.desenvolvimentoText6 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText6 }}></label>
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.desenvolvimentoImage3 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.desenvolvimentoImage3.fields.file.url})` }} />
-                  <SpaceImage /></>
-                  : null}
-                {res.fields.desenvolvimentoText7 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.desenvolvimentoText7 }}></label>
-                  <Space /></>
-                  : null}
-                <Divider />
-                <p>{res.fields.concTitle}</p>
-                {res.fields.conclusaoText1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.conclusaoText1 }}></label>
-                  <Space /></>
-                  : null}
-                {res.fields.conclusaoText2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.conclusaoText2 }}></label>
-                  <Space /></>
-                  : null}
-                {res.fields.conclusaoText4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.conclusaoText3 }}></label>
-                </>
-                  : null}
-                <SpaceImage />
-                {res.fields.conclusaoImage1 ? <><ContentImage style={{ backgroundImage: `url(${res.fields.conclusaoImage1.fields.file.url})` }} />
-                  <SpaceImage /></>
-                  : null}
-                <BottomDivider>
-                  <div style={{ background: "#6D2AA6" }} />
-                  <CircleDiv>
-
-                    <img src="./icon/miniLogo.png" />
-                  </CircleDiv>
-                  <div style={{ background: "#56EE8D" }} />
-                </BottomDivider>
-                <AuthorDiv>
-                  <PhotoDiv style={{ backgroundImage: ` url(${res.fields.author.fields.image.fields.file.url})` }}></PhotoDiv>
-                  <AuthorTxt>
-                    <AuthorTop>
-
-                      <AuthorTitle>{res.fields.author.fields.name}</AuthorTitle>
-                      <RevTab>Revisão: <span> {res.fields.reviewer}</span></RevTab>
-                    </AuthorTop>
-                    <AuthorDesc>{res.fields.author.fields.desc}</AuthorDesc>
-                  </AuthorTxt>
-                </AuthorDiv>
+               
                 <Divider />
                 <DisqusDiv>
                   <Disqus.DiscussionEmbed
@@ -494,7 +407,7 @@ function Artigo() {
                   />
                 </DisqusDiv>
               </AllPost>
-      </ThemeProvider>
+            </ThemeProvider>
             <Footer />
           </>
         )
@@ -503,4 +416,4 @@ function Artigo() {
   );
 }
 
-export default Artigo;
+export default Top;
