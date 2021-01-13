@@ -495,7 +495,7 @@ function Top() {
                 <SpaceImage />
 
                 <label dangerouslySetInnerHTML={{ __html: res.fields.concTxt }}></label>
-                
+                <SpaceImage/>
                 <BottomDivider>
                   <div style={{ background: "#6D2AA6" }} />
                   <CircleDiv>
