@@ -272,8 +272,8 @@ export default function ListPodcasts() {
     async function FetchMyApi() {
 
       let items = await ConnectContent();
-      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
-      // let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "top");
+      // let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise");
+      let allContent = await items.filter(x => x.fields.type == "artigo" || x.fields.type == "analise" || x.fields.type == "top");
       setAll(allContent.reverse());
       arrayNum = await all.length;
     }
