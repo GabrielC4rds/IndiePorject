@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Podcast from './pages/Podcast';
 import Artigo from './pages/Artigo';
 import Analise from './pages/Analise';
+import Top from './pages/Top';
 import PodcastPage from './pages/PodcastPage';
 import { StoreProvider } from './Store';
 import ArtigosPage from './pages/ArtigosPage';
@@ -101,6 +102,10 @@ function App() {
                   content == "analise" ?
                     <Route path="/:User">
                       <Analise />
+                    </Route> :
+                    content == "top" ?
+                    <Route path="/:User">
+                      <Top />
                     </Route> :
                     <>
                     <Route path='/artigospage'>
