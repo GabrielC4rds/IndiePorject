@@ -407,92 +407,93 @@ function Top() {
                 </>
                   : null}
                   {res.fields.text1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text1 }}></label>
+                  <SpaceImage />
+                  <ContentImage style={{ backgroundImage: `url(${res.fields.img1.fields.file.url})` }} />
+                  <SpaceImage />
                 </>
                   : null}
-                <SpaceImage />
-                <ContentImage style={{ backgroundImage: `url(${res.fields.img1.fields.file.url})` }} />
-                <SpaceImage />
+
                 {res.fields.title2 ? <><p>{ res.fields.title2}</p>
-                </>
-                  : null}
-                  {res.fields.text2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text2 }}></label>
-                </>
-                  : null}
+                {res.fields.text2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text2 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img2.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title3 ? <><p>{ res.fields.title3}</p>
-                </>
-                  : null}
-                  {res.fields.text3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text3 }}></label>
-                </>
-                  : null}
+                {res.fields.text3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text3 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img3.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title4 ? <><p>{ res.fields.title4}</p>
-                </>
-                  : null}
-                  {res.fields.text4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text4 }}></label>
-                </>
-                  : null}
+                {res.fields.text4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text4 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img4.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title5 ? <><p>{ res.fields.title5}</p>
-                </>
-                  : null}
-                  {res.fields.text5 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text5 }}></label>
-                </>
-                  : null}
+                {res.fields.text5 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text5 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img5.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title6 ? <><p>{ res.fields.title6}</p>
-                </>
-                  : null}
-                  {res.fields.text6 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text6 }}></label>
-                </>
-                  : null}
+                {res.fields.text6 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text6 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img6.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title7 ? <><p>{ res.fields.title7}</p>
-                </>
-                  : null}
-                  {res.fields.text7 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text7 }}></label>
-                </>
-                  : null}
+                {res.fields.text7 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text7 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img7.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title8 ? <><p>{ res.fields.title8}</p>
-                </>
-                  : null}
-                  {res.fields.text8 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text8 }}></label>
-                </>
-                  : null}
+                {res.fields.text8 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text8 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img8.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title9 ? <><p>{ res.fields.title9}</p>
-                </>
-                  : null}
-                  {res.fields.text9 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text9 }}></label>
-                </>
-                  : null}
+                {res.fields.text9 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text9 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img9.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
                 {res.fields.title10 ? <><p>{ res.fields.title10}</p>
-                </>
-                  : null}
-                  {res.fields.text10 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text10 }}></label>
-                </>
-                  : null}
+                {res.fields.text10 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text10 }}></label>
                 <SpaceImage />
                 <ContentImage style={{ backgroundImage: `url(${res.fields.img10.fields.file.url})` }} />
                 <SpaceImage />
+                </>
+                  : null}
+                </>
+                  : null}
 
                 <label dangerouslySetInnerHTML={{ __html: res.fields.concTxt }}></label>
                 <SpaceImage/>
