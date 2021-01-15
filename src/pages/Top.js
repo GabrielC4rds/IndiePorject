@@ -166,7 +166,7 @@ const Space = styled.div`
 
 const SpaceImage = styled.div`
   width: 100%;
-  height: 8vh;
+  height: 2.5vh;
   
 `;
 
@@ -397,7 +397,124 @@ function Top() {
                 </button>
               </>
               <AllPost>
-               
+                <label dangerouslySetInnerHTML={{ __html: res.fields.description }}>
+
+                </label>
+                <p>{res.fields.allDesc}</p>
+                <Divider />
+                <Space />
+                {res.fields.title1 ? <><p>{ res.fields.title1}</p>
+                </>
+                  : null}
+                  {res.fields.text1 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text1 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img1.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title2 ? <><p>{ res.fields.title2}</p>
+                </>
+                  : null}
+                  {res.fields.text2 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text2 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img2.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title3 ? <><p>{ res.fields.title3}</p>
+                </>
+                  : null}
+                  {res.fields.text3 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text3 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img3.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title4 ? <><p>{ res.fields.title4}</p>
+                </>
+                  : null}
+                  {res.fields.text4 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text4 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img4.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title5 ? <><p>{ res.fields.title5}</p>
+                </>
+                  : null}
+                  {res.fields.text5 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text5 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img5.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title6 ? <><p>{ res.fields.title6}</p>
+                </>
+                  : null}
+                  {res.fields.text6 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text6 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img6.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title7 ? <><p>{ res.fields.title7}</p>
+                </>
+                  : null}
+                  {res.fields.text7 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text7 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img7.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title8 ? <><p>{ res.fields.title8}</p>
+                </>
+                  : null}
+                  {res.fields.text8 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text8 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img8.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title9 ? <><p>{ res.fields.title9}</p>
+                </>
+                  : null}
+                  {res.fields.text9 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text9 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img9.fields.file.url})` }} />
+                <SpaceImage />
+                {res.fields.title10 ? <><p>{ res.fields.title10}</p>
+                </>
+                  : null}
+                  {res.fields.text10 ? <><label dangerouslySetInnerHTML={{ __html: res.fields.text10 }}></label>
+                </>
+                  : null}
+                <SpaceImage />
+                <ContentImage style={{ backgroundImage: `url(${res.fields.img10.fields.file.url})` }} />
+                <SpaceImage />
+
+                <label dangerouslySetInnerHTML={{ __html: res.fields.concTxt }}></label>
+                <SpaceImage/>
+                <BottomDivider>
+                  <div style={{ background: "#6D2AA6" }} />
+                  <CircleDiv>
+
+                    <img src="./icon/miniLogo.png" />
+                  </CircleDiv>
+                  <div style={{ background: "#56EE8D" }} />
+                </BottomDivider>
+                <AuthorDiv>
+                  <PhotoDiv style={{ backgroundImage: ` url(${res.fields.author.fields.image.fields.file.url})` }}></PhotoDiv>
+                  <AuthorTxt>
+                    <AuthorTop>
+
+                      <AuthorTitle>{res.fields.author.fields.name}</AuthorTitle>
+                      <RevTab>Revisão: <span>{res.fields.reviewer}</span></RevTab>
+                    </AuthorTop>
+                    <AuthorDesc>{res.fields.author.fields.desc}</AuthorDesc>
+                  </AuthorTxt>
+                </AuthorDiv>
                 <Divider />
                 <DisqusDiv>
                   <Disqus.DiscussionEmbed
