@@ -316,7 +316,6 @@ export default function ListPodcasts() {
               return (
                 <a href={`${res.fields.url}`}> 
                   <Item onClick={() => setUser(res.fields.title)} onClick={() => window.location.href=`/${res.fields.url}`}>
-                    {console.log("aqui troxa",res.fields.coverArt)}
                     <ItemTop style={{ backgroundImage: `url(${res.fields.banner.fields.file.url})` }}>
                     <BannerTop>
                        <label>{res.fields.type}</label>

@@ -21,7 +21,6 @@ const Content = styled.div`
   background: black;
   width: 100%;
   height: auto;
-  margin-top: 11vh;
   
   h3{
     height: 90vh;

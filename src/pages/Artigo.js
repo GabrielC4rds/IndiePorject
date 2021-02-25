@@ -343,7 +343,7 @@ function Artigo() {
       // setAll(allContent)
       // :
       // setAll(allContent);
-      console.log("all", allContent);
+      // console.log("all", allContent);
       setDisquisId(name);
       setDisquisUrl(nameUrl);
       let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
