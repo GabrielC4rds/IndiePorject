@@ -21,7 +21,7 @@ const Content = styled.div`
   position: sticky;
   z-index: 7;
   @media only screen and (max-width: 768px) {
-    height: 100px;
+    height: auto;
     width: 100%;
   }
 `;
