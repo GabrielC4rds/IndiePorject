@@ -25,7 +25,7 @@ const All = styled.div`
 const ContentDiv = styled.div`
   width: 100%;
   height: auto;
-  margin-top: 20vh;
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;

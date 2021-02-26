@@ -82,7 +82,7 @@ const TitleDiv = styled.div`
 
 const TopDiv = styled.div`
   width: 100%;
-  height: 20vh;
+  height: 10vh;
 `;
 
 const PostImage = styled.div`

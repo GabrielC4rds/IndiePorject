@@ -263,7 +263,7 @@ export default function ListPodcasts() {
     infinite: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     // mobileFirst:true,
@@ -273,7 +273,7 @@ export default function ListPodcasts() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          infinite: true,
+          infinite: slider.length > 2?true: false,
         }
       }
 
