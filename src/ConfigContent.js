@@ -2,8 +2,8 @@ import { createClient } from 'contentful'
 const contentful = require("contentful")
 const config = require("./config.json")
 
+
 export const client = () => contentful.createClient(config.contentful);
-  
 
 export const opt = {
     order: "sys.createdAt",
