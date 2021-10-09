@@ -11,6 +11,7 @@ import ArtigosPage from './pages/ArtigosPage';
 import { UserContext, StoreContext } from './Store';
 import { ConnectContent } from './ConfigContent';
 import styled from 'styled-components';
+import Live from './pages/Live'
 
 import {
   BrowserRouter as Router,
@@ -40,7 +41,7 @@ function App() {
 
   useEffect(() => {
     async function FetchMyApi() {
-      let url = await window.location.href.toString().replace('https://indiecacao.com.br/', '');
+      let url = await window.location.href.toString().replace('http://localhost:3000/', '');
       let urlTitle = await url.replace("%20", " ");
       let items = await ConnectContent();
       let contentName = await items.find(x => x.fields.url == urlTitle);
@@ -113,6 +114,9 @@ function App() {
                     </Route>
                     <Route path='/podcastpage'>
                       <PodcastPage />
+                    </Route>
+                    <Route path='/live'>
+                      <Live />
                     </Route>
                     </>
             }
