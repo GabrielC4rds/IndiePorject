@@ -22,7 +22,7 @@
     "react-multi-carousel": "^2.5.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-slick": "0.27.11",
+    "react-slick": "^0.28.1",
     "sharethis-reactjs": "^1.6.0",
     "simple-react-comments": "^1.1.0",
     "slick-carousel": "1.8.1",
@@ -47,7 +47,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-      
     ]
   }
 }

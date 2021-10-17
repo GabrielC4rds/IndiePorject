@@ -60,6 +60,7 @@ const ButtonDiv = styled.div`
   height: 48px;
   background: #F2F4F8 0% 0% no-repeat padding-box;
   border-radius: 16px;
+  cursor: pointer;
 `;
 
 const InputDiv = styled.input`
@@ -74,9 +75,12 @@ const InputDiv = styled.input`
 const RollButton = styled.div`
   width: 371px;
   height: 48px;
-  background: #4525F2 0% 0% no-repeat padding-box;
-  border-radius: 100px;
   display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  background: #4525F2 0% 0% no-repeat padding-box;
+  cursor: pointer;
+  border-radius: 100px;
   p{
     font: normal normal 600 16px/22px Noto Sans;
     color: #FFFFFF;
